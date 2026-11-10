@@ -1,37 +1,36 @@
-import { SERVICE_PAGES, SERVICES } from '../data/siteData.js'
+import { SERVICES } from '../data/siteData.js'
 
-export default function Services({ onBook }) {
+// 12 separate service cards, exactly as on the preview: image (linked to
+// the service page where the card has one), title, text, a green
+// "Free diagnostics" pill plus the card's own time pill, a
+// "Book this repair →" button and — for the 8 cards with a service
+// page — a "View service page →" link.
+export default function Services({ onBookService, onBookDevice }) {
   return (
     <section id="services">
       <div className="wrap">
         <div className="sec-head">
           <p className="eyebrow center">Issues We Repair</p>
-          <h2>Your one-stop shop for every gadget repair</h2>
-          <p>Free diagnostics on everything. You approve the exact price before we start — no surprises, no pressure if you decide not to repair.</p>
+          <h2>Your one-stop solution for every gadget repair</h2>
+          <p>Free diagnostics on everything. We confirm the exact price with you in store after diagnosis — before any repair begins — so there are never surprises.</p>
         </div>
         <div className="svc-grid">
           {SERVICES.map((s) => (
-            <article className="svc" key={s.device}>
-              <img src={s.img} alt={s.alt} loading="lazy" />
+            <article className="svc" key={s.title}>
+              {s.route
+                ? <a href={`#/service/${s.route}`} aria-label={`${s.title} — view service page`}><img src={s.img} alt={s.alt} loading="lazy" /></a>
+                : <img src={s.img} alt={s.alt} loading="lazy" />}
               <div className="svc-body">
                 <h3>{s.title}</h3>
                 <p>{s.text}</p>
-                <div className="svc-meta"><span className="pill">{s.time}</span></div>
-                <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-                  <button className="btn btn-sm" type="button" onClick={() => { onBook(s.device); document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' }) }}>Book this repair →</button>
-                  {s.page && <a className="btn btn-sm" href={`#/service/${s.page}`} style={{ textDecoration: 'none' }}>Learn more</a>}
+                <div className="svc-meta"><span className="pill diag">Free diagnostics</span><span className="pill">{s.time}</span></div>
+                <div className="svc-actions">
+                  <button className="btn btn-sm" type="button" onClick={() => (s.route ? onBookService(s.route) : onBookDevice(s.device))}>Book this repair →</button>
+                  {s.route && <a className="svc-link" href={`#/service/${s.route}`}>View service page →</a>}
                 </div>
               </div>
             </article>
           ))}
-        </div>
-        <div style={{ marginTop: 30 }}>
-          <h3 style={{ fontSize: '1.1rem', marginBottom: 12, textAlign: 'center' }}>Explore our repair service pages</h3>
-          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', justifyContent: 'center' }}>
-            {SERVICE_PAGES.map((p) => (
-              <a key={p.slug} className="chip" href={`#/service/${p.slug}`} style={{ textDecoration: 'none' }}>{p.title}</a>
-            ))}
-          </div>
         </div>
       </div>
     </section>

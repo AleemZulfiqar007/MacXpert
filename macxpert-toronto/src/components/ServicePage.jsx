@@ -1,65 +1,75 @@
-import { SERVICE_PAGES, SHOP } from '../data/siteData.js'
+import { useEffect } from 'react'
+import { orderedServicePages, SHOP } from '../data/siteData.js'
+
+const CheckSvg = () => (<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>)
+const SearchIcon = () => (<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>)
+const ShieldIcon = () => (<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>)
+const ClockIcon = () => (<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>)
+const PinIcon = () => (<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>)
 
 // One service page per SERVICE_PAGES entry, reached by hash route
-// (#/service/<slug>). Every page follows the same rules as the rest of
-// the site: no prices anywhere (price confirmed after free in-store
-// diagnostics), 3-month warranty on parts and workmanship (excludes
-// liquid/water damage, LCD cracks and pressure damage), and walk-in,
-// mail-in and in-home options.
+// (#/service/<slug>), following the preview's shared template exactly:
+// breadcrumb, hero with pills, "What we repair" cards, the same four
+// "Good to know" cards on every page, an optional extra box, a booking
+// CTA, and chips for the other services.
 export default function ServicePage({ page, onBook }) {
-  const others = SERVICE_PAGES.filter((p) => p.slug !== page.slug)
+  useEffect(() => {
+    const prev = document.title
+    document.title = `${page.title} in Toronto — MacXpert Toronto`
+    return () => { document.title = prev }
+  }, [page])
+
+  const others = orderedServicePages().filter((p) => p.slug !== page.slug)
+  const extra = page.extra
+  const extraBody = extra && extra.linkText ? (() => {
+    const i = extra.text.indexOf(extra.linkText)
+    return i === -1 ? extra.text : <>{extra.text.slice(0, i)}<a href={extra.linkHref} style={{ color: 'var(--brand-bright)', fontWeight: 700 }}>{extra.linkText}</a>{extra.text.slice(i + extra.linkText.length)}</>
+  })() : extra?.text
+
   return (
-    <section style={{ paddingTop: 44 }}>
+    <section style={{ paddingTop: 36 }}>
       <div className="wrap">
-        <p style={{ margin: '0 0 14px' }}><a href="#services" style={{ color: 'var(--brand-bright)', fontWeight: 700, textDecoration: 'none' }}>← All services</a></p>
-        <div className="hero-grid" style={{ padding: '10px 0 30px' }}>
-          <div className="hero-media">
-            <img className="main" src={page.img} alt={page.alt} style={{ height: 380 }} />
-          </div>
-          <div className="hero-copy">
-            <p className="eyebrow">Repair Service</p>
-            <h1 style={{ fontSize: 'clamp(2rem,4vw,3rem)', fontWeight: 900, margin: '12px 0 14px' }}>{page.title}</h1>
-            <p>{page.intro}</p>
-            <div className="hero-actions">
-              <button className="btn btn-primary" type="button" onClick={() => onBook(page.device)}>Book this repair →</button>
+        <p className="sp-crumb"><a href="#top">Home</a> &nbsp;›&nbsp; <a href="#services">Services</a> &nbsp;›&nbsp; {page.title}</p>
+        <div className="sp-hero">
+          <div>
+            <p className="eyebrow">MacXpert Toronto — Services</p>
+            <h1>{page.title}</h1>
+            <p className="intro">{page.intro}</p>
+            <p className="sp-covers">{page.covers}</p>
+            <div className="sp-actions">
+              <button className="btn btn-primary" type="button" onClick={() => onBook(page.slug)}>Book this repair →</button>
               <a className="btn btn-outline" href={SHOP.phoneHref}>Call {SHOP.phoneDisplay}</a>
             </div>
-            <div className="hero-stats">
-              <div><b>{page.time}</b><span>Typical turnaround</span></div>
-              <div><b>Free</b><span>Diagnostics — always free</span></div>
-              <div><b>3-month</b><span>Warranty on parts &amp; workmanship</span></div>
-            </div>
+            <div className="sp-pills"><span className="pill diag">Free diagnostics</span><span className="pill">{page.turnaround}</span><span className="pill">3-month warranty</span></div>
           </div>
+          <div className="sp-hero-media"><img src={page.img} alt={page.alt} /></div>
         </div>
 
-        <div className="two-col">
-          <div className="panel">
-            <h3>What we fix</h3>
-            <p className="sub">Free diagnostics on everything — you approve the exact price before we start.</p>
-            <ul style={{ margin: 0, paddingLeft: 20, color: 'var(--ink-2)', display: 'grid', gap: 9 }}>
-              {page.points.map((pt) => <li key={pt}>{pt}</li>)}
-            </ul>
-          </div>
-          <div className="panel">
-            <h3>Good to know</h3>
-            <p className="sub">The same promise on every repair.</p>
-            {page.details.map((d) => <p key={d.slice(0, 32)} style={{ color: 'var(--ink-2)', fontSize: '.93rem' }}>{d}</p>)}
-            <ul style={{ margin: '10px 0 0', paddingLeft: 20, color: 'var(--ink-2)', fontSize: '.93rem', display: 'grid', gap: 7 }}>
-              <li>No pre-determined charges — the exact price is confirmed with you after free in-store diagnostics.</li>
-              <li>3-month warranty on parts and workmanship. Does not cover liquid or water damage, LCD cracks, or pressure damage.</li>
-              <li>Walk-in, mail-in (Canada-wide) and in-home visits all offered.</li>
-            </ul>
-            <button className="btn btn-primary btn-block" type="button" style={{ marginTop: 18 }} onClick={() => onBook(page.device)}>Book this repair →</button>
-          </div>
+        <h2 style={{ margin: '54px 0 8px' }}>What we repair</h2>
+        <p className="lead" style={{ margin: '0 0 22px', maxWidth: '62ch' }}>Every job starts with free in-store diagnostics. Your price is confirmed after free in-store diagnostics — before any work begins — and no repair starts without your approval.</p>
+        <div className="sp-repairs">
+          {page.repairs.map(([t, d]) => (
+            <div className="sp-repair" key={t}><span className="check"><CheckSvg /></span><h3>{t}</h3><p>{d}</p></div>
+          ))}
         </div>
 
-        <div style={{ marginTop: 40 }}>
-          <h3 style={{ fontSize: '1.2rem', marginBottom: 14 }}>Other repair services</h3>
-          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-            {others.map((p) => (
-              <a key={p.slug} className="chip" href={`#/service/${p.slug}`} style={{ textDecoration: 'none' }}>{p.title}</a>
-            ))}
-          </div>
+        <h2 style={{ margin: '54px 0 22px' }}>Good to know</h2>
+        <div className="sp-info">
+          <div className="sp-info-card"><h3><span className="ic"><SearchIcon /></span>Pricing — confirmed after free diagnostics</h3><p>We don&rsquo;t publish pre-set prices, because every fault is different. Your device is diagnosed free in store, we confirm the exact price with you, and work starts only when you approve it. If you decide not to repair, you pay nothing.</p></div>
+          <div className="sp-info-card"><h3><span className="ic"><ShieldIcon /></span>3-month warranty</h3><p>This repair is covered by a 3-month warranty on parts and workmanship. The warranty excludes liquid or water damage, LCD cracks, and pressure damage. See our <a href="#warranty" style={{ color: 'var(--brand-bright)', fontWeight: 700 }}>warranty policy</a> for full details.</p></div>
+          <div className="sp-info-card"><h3><span className="ic"><ClockIcon /></span>Turnaround</h3><p>{page.turnaround}. We&rsquo;ll confirm your exact timeline after the free diagnosis, once we&rsquo;ve seen the device.</p></div>
+          <div className="sp-info-card"><h3><span className="ic"><PinIcon /></span>Walk-in, mail-in &amp; in-home</h3><ul><li><b>Walk-in:</b> visit 1022 St Clair Ave W, Toronto — no appointment needed.</li><li><b>Mail-in:</b> send your device from anywhere in Canada.</li><li><b>In-home visit:</b> a technician comes to you — ideal for desktops and larger setups.</li></ul></div>
+        </div>
+        {extra && <div className="sp-extra"><b>{extra.title}</b><p>{extraBody}</p></div>}
+
+        <div className="sp-cta" style={{ marginTop: 40 }}>
+          <div><h2>Ready to book your {page.title.toLowerCase()}?</h2><p>Book online in under a minute, call us at {SHOP.phoneDisplay}, or just walk in. Diagnostics are free and your price is confirmed before any work starts.</p></div>
+          <div className="sp-actions" style={{ margin: 0 }}><button className="btn btn-bright" type="button" onClick={() => onBook(page.slug)}>Book this repair →</button><a className="btn btn-outline" href="#services">All services</a></div>
+        </div>
+
+        <h2 style={{ margin: '54px 0 18px', fontSize: '1.4rem' }}>Other services</h2>
+        <div className="sp-related">
+          {others.map((p) => <a key={p.slug} className="chip" href={`#/service/${p.slug}`} style={{ textDecoration: 'none' }}>{p.title}</a>)}
         </div>
       </div>
     </section>

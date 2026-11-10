@@ -20,19 +20,31 @@ function routeFromHash() {
   return m ? servicePageBySlug(m[1]) || null : null
 }
 
-// Device + issue are shared state: the device chips, service cards,
-// repair-check panel and booking form all stay in sync, like the preview site.
+function scrollToHash() {
+  const h = window.location.hash
+  if (h && h.length > 1 && h.charAt(1) !== '/') {
+    const el = document.querySelector(h)
+    if (el) { el.scrollIntoView(); return }
+  }
+  window.scrollTo(0, 0)
+}
+
+// Device + issue are shared state: the device chips, service cards and
+// the booking form (including its turnaround display box) all stay in
+// sync, like the preview site.
 export default function App() {
   const [device, setDevice] = useState('iPhone')
-  const [issue, setIssue] = useState(Object.keys(ISSUES['iPhone'])[0])
+  const [issue, setIssue] = useState(ISSUES['iPhone'][0])
   const [toast, setToast] = useState('')
   const [servicePage, setServicePage] = useState(() => routeFromHash())
+  const [notePreset, setNotePreset] = useState(null)
 
   useEffect(() => {
     const onHash = () => {
       const page = routeFromHash()
       setServicePage(page)
       if (page) window.scrollTo({ top: 0 })
+      else setTimeout(scrollToHash, 60)
     }
     window.addEventListener('hashchange', onHash)
     return () => window.removeEventListener('hashchange', onHash)
@@ -40,23 +52,38 @@ export default function App() {
 
   const changeDevice = useCallback((d) => {
     setDevice(d)
-    // 'Other' has no issue list of its own — the booking form shows a
-    // free-text field for it instead.
-    setIssue(d === 'Other' ? 'Other' : Object.keys(ISSUES[d])[0])
+    setIssue((ISSUES[d] || ISSUES['Other'])[0])
   }, [])
 
-  // "Book this repair" on a service page: preselect the device, go back
-  // to the home page and scroll to the booking form.
-  const bookService = useCallback((d) => {
-    changeDevice(d)
+  const goToBooking = useCallback(() => {
     if (window.location.hash.startsWith('#/service/')) {
       window.location.hash = '#booking'
       // The home page has to render before #booking exists to scroll to.
       setTimeout(() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' }), 80)
     } else {
+      if (window.location.hash !== '#booking') {
+        try { history.pushState(null, '', '#booking') } catch { window.location.hash = 'booking' }
+      }
       document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })
     }
-  }, [changeDevice])
+  }, [])
+
+  // "Book this repair" for a device only (device chips, non-page cards).
+  const bookDevice = useCallback((d) => { changeDevice(d); goToBooking() }, [changeDevice, goToBooking])
+
+  // "Book this repair" for a service page (its page, and the homepage
+  // cards that have one): preselect the page's device and — where the
+  // preview maps one — its issue and notes, then open the booking form.
+  const bookService = useCallback((slug) => {
+    const page = servicePageBySlug(slug)
+    if (!page) return
+    setDevice(page.device)
+    const list = [...(ISSUES[page.device] || ISSUES['Other'])]
+    if (!list.includes('Other')) list.push('Other')
+    setIssue(page.issue && list.includes(page.issue) ? page.issue : list[0])
+    if (page.note) setNotePreset({ text: page.note, n: Date.now() })
+    goToBooking()
+  }, [goToBooking])
 
   const showToast = useCallback((msg) => {
     setToast(msg)
@@ -74,10 +101,10 @@ export default function App() {
         <main id="top">
           <Hero />
           <DeviceStrip device={device} onSelect={changeDevice} />
-          <Services onBook={changeDevice} />
+          <Services onBookService={bookService} onBookDevice={bookDevice} />
           <WhyUs />
           <Process />
-          <Booking device={device} issue={issue} onDeviceChange={changeDevice} onIssueChange={setIssue} showToast={showToast} />
+          <Booking device={device} issue={issue} onDeviceChange={changeDevice} onIssueChange={setIssue} showToast={showToast} notePreset={notePreset} />
           <Reviews />
           <FaqVisit />
           <Policies />

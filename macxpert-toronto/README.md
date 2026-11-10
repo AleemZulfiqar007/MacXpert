@@ -1,9 +1,17 @@
 # MacXpert Toronto — Website Source Code
 
-The editable React source for the MacXpert Toronto tech repair website —
-the same site as the hosted preview: same pictures, same colours/theme,
-same services (including the 8 separate service pages), booking form,
-live Google reviews and policies.
+> **Preview parity (Nov 9, 2026 rebuild):** this code was rebuilt page by
+> page from the hosted preview, so the download now matches the preview
+> exactly — light theme throughout, the preview's own stylesheet and
+> images (including the TV card photo), all 12 homepage service cards as
+> separate cards (MacBook and iMac are separate; "Samsung / Android
+> Repair"), the preview's booking layout (left "How our pricing works"
+> panel + "Book your repair" form panel with the "Your repair" turnaround
+> display box and the shorter in-form pricing steps — there is no
+> separate estimator panel), the 8 service pages in the preview's shared
+> template, and the preview's FAQ, hours, policies and footer wording.
+> There are no prices anywhere on the site: diagnostics are free and the
+> price is confirmed in store before any work starts.
 
 Business details (address, phone, hours) come from the shop's Google
 Business listing. The site is branded **MacXpert Toronto**; the listing
