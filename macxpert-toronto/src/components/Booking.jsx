@@ -76,8 +76,6 @@ function sendBookingEmail(booking, live) {
     'Preferred date': booking.date,
     'How we get the device': booking.method,
     Notes: booking.notes || '—',
-    'Google rating': googleRatingLine(live),
-    'Recent Google reviews': googleReviewsLine(live),
   }
   // Fire and forget: the on-screen confirmation must show even if the
   // email service is briefly unreachable — the customer still gets a ref.
