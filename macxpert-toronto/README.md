@@ -92,8 +92,8 @@ all offered.
 
 When a customer submits the booking form, the site sends the booking
 (device, issue, date, name, phone, booking reference, and the rest)
-to **aleemzulfiqar7@gmail.com** using FormSubmit
-(`https://formsubmit.co/ajax/aleemzulfiqar7@gmail.com`) — a free service,
+to **Info1.macxpert@gmail.com** using FormSubmit
+(`https://formsubmit.co/ajax/Info1.macxpert@gmail.com`) — a free service,
 no signup, no server or backend needed. The customer still sees the
 on-screen booking confirmation with their reference either way.
 
@@ -103,7 +103,7 @@ the live reviews endpoint is working; if it is not, it includes just a
 link to the Google listing instead.
 
 **Activation — already done:** the first booking triggered an activation
-email to aleemzulfiqar7@gmail.com, which was confirmed. Bookings now go
+email to Info1.macxpert@gmail.com, which was confirmed. Bookings now go
 straight to the inbox.
 
 To send bookings to a different address later, change only the email in
@@ -177,10 +177,10 @@ Refunds: **none** — exchange only on defective goods.
   Clair Ave W, Toronto, ON M6E 1A4, **+1 (647) 569-6360**. Shop email
   **Info1.macxpert@gmail.com** (provided by ALU; no email was listed on
   Google). It is the display/contact email only — booking request emails
-  still go to aleemzulfiqar7@gmail.com (see "Booking emails" above).
+  still go to Info1.macxpert@gmail.com (see "Booking emails" above).
 - Opening hours (from the Google listing): Mon 10:00 AM – 6:30 PM,
   Tue 10:00 AM – 6:30 PM, Wed 10:00 AM – 8:00 PM, Thu 9:30 AM – 7:00 PM,
   Fri 9:30 AM – 7:30 PM, Sat 10:00 AM – 7:00 PM, Sun 10:00 AM – 6:00 PM.
-- Bookings are emailed automatically to aleemzulfiqar7@gmail.com (see
+- Bookings are emailed automatically to Info1.macxpert@gmail.com (see
   "Booking emails" above) and the customer still sees a reference code
   on screen. Bookings are not saved to a database.

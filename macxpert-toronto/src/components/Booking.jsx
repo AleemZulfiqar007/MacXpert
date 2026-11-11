@@ -59,7 +59,7 @@ function googleReviewsLine(live) {
 // email to this address — it must be confirmed once, or no emails arrive.
 // The form also carries a no-JS fallback (action + hidden fields) so a
 // booking still reaches the shop if JavaScript is off.
-const BOOKING_EMAIL_ENDPOINT = 'https://formsubmit.co/ajax/aleemzulfiqar7@gmail.com'
+const BOOKING_EMAIL_ENDPOINT = 'https://formsubmit.co/ajax/Info1.macxpert@gmail.com'
 
 function sendBookingEmail(booking, live) {
   const body = {
@@ -200,7 +200,7 @@ export default function Booking({ device, issue, onDeviceChange, onIssueChange, 
                   <StepsList steps={PRICING_STEPS_FORM} />
                 </div>
                 {err && <p className="err" id="formErr" role="alert" style={{ display: 'block' }}>{err}</p>}
-                <form onSubmit={submit} noValidate action="https://formsubmit.co/aleemzulfiqar7@gmail.com" method="POST">
+                <form onSubmit={submit} noValidate action="https://formsubmit.co/Info1.macxpert@gmail.com" method="POST">
                   <input type="hidden" name="_subject" value="New repair booking — MacXpert Toronto" />
                   <input type="hidden" name="_template" value="table" />
                   <input type="hidden" name="_captcha" value="false" />
