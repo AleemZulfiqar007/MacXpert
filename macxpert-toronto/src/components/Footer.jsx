@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="wrap">
         <div className="cols">
           <div>
-            <span className="logo-text" style={{ color: '#fff' }}><b style={{ color: '#fff' }}>MAC<span style={{ color: 'var(--brand-bright)' }}>XPERT</span></b><small style={{ color: '#7e99a3' }}>Toronto · Repair · Upgrade · Solve</small></span>
+            <img src="/images/logo.png" alt="MacXpert Toronto" style={{ height: 44, width: 'auto', display: 'block' }} />
             <p style={{ margin: '14px 0 0', maxWidth: '32ch' }}>Toronto&rsquo;s repair centre for iPhones, Macs, PCs, tablets, consoles and more. Diagnostics, honest in-store pricing, 3-month warranty.</p>
           </div>
           <div><h4>Services</h4>{orderedServicePages().map((p) => <a key={p.slug} href={`#/service/${p.slug}`}>{p.title}</a>)}</div>

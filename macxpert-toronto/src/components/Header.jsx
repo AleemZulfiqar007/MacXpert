@@ -4,7 +4,6 @@ import { orderedServicePages, SHOP } from '../data/siteData.js'
 const Pin = () => (<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>)
 const Mail = () => (<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>)
 const Phone = () => (<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13 1 .36 1.96.7 2.9a2 2 0 0 1-.45 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.94.34 1.9.57 2.9.7A2 2 0 0 1 22 16.9z"/></svg>)
-const Wrench = () => (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.7 6.3a4.5 4.5 0 0 0-6 6L3 18l3 3 5.7-5.7a4.5 4.5 0 0 0 6-6L14 13l-3-3 3.7-3.7z"/></svg>)
 
 export default function Header() {
   const [open, setOpen] = useState(false)
@@ -23,8 +22,7 @@ export default function Header() {
       <header className="nav">
         <div className="wrap nav-inner">
           <a className="logo" href="#top" aria-label="MacXpert Toronto home">
-            <span className="logo-mark" aria-hidden="true"><Wrench /></span>
-            <span className="logo-text"><b>MAC<span>XPERT</span></b><small>Toronto · Repair · Upgrade · Solve</small></span>
+            <img src="/images/logo.png" alt="MacXpert Toronto" style={{ height: 44, width: 'auto', display: 'block' }} />
           </a>
           <button className="burger" aria-label="Open menu" aria-expanded={open} onClick={() => setOpen(!open)}>
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
