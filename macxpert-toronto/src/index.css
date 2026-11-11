@@ -327,6 +327,16 @@ main[hidden]{display:none !important}
 .reveal-right{transform:translateX(36px)}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+/* Slide-only reveal: never hides content (opacity stays 1). Use for
+   review cards, FAQ items and anything added after load, so it can
+   never get stuck invisible at opacity 0. */
+.reveal-lift{opacity:1;transform:translateY(30px);transition:transform .7s cubic-bezier(.22,.61,.36,1)}
+.reveal-lift.in{transform:none}
+@media(prefers-reduced-motion:reduce){.reveal-lift{transform:none;transition:none}}
+/* Review cards and FAQ items must never sit at opacity 0, even if a
+   fade .reveal class is ever applied to them (they load after the
+   scroll observer runs). */
+#reviews .rev.reveal,#reviews .rev,#contact .faq-item.reveal,#contact .faq-item{opacity:1}
 
 /* Grid children must be allowed to shrink below their content's
    min-content size — otherwise a column overflows the phone screen

@@ -71,15 +71,45 @@ export default function App() {
   // Reveal-on-scroll: elements with .reveal (slide/fade variants) animate
   // in when they enter the viewport, like themactech.ca — subtle, and
   // disabled for visitors who prefer reduced motion (handled in CSS).
+  // Review cards and FAQ items use the slide-only .reveal-lift variant
+  // (opacity always 1) so they can never get stuck invisible, and a
+  // MutationObserver picks up content added after load (the live review
+  // cards fetched from /api/reviews) and reveals it too.
   useEffect(() => {
-    const els = Array.from(document.querySelectorAll('.reveal:not(.in)'))
-    if (!els.length) return undefined
-    if (!('IntersectionObserver' in window)) { els.forEach((e) => e.classList.add('in')); return undefined }
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('.reveal:not(.in), .reveal-lift:not(.in)').forEach((e) => e.classList.add('in'))
+      return undefined
+    }
     const io = new IntersectionObserver((entries) => {
       entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target) } })
     }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' })
-    els.forEach((e) => io.observe(e))
-    return () => io.disconnect()
+    const normalizeSlideOnly = (root) => {
+      const scope = root && root.nodeType === 1 ? root : document
+      scope.querySelectorAll('#reviews .reveal, #reviews .rev, #contact .faq-item.reveal, #contact .faq-item').forEach((el) => {
+        el.classList.remove('reveal')
+        if (!el.classList.contains('reveal-lift')) el.classList.add('reveal-lift')
+      })
+      if (scope !== document && scope.matches && scope.matches('#reviews .reveal, #reviews .rev, #contact .faq-item.reveal, #contact .faq-item')) {
+        scope.classList.remove('reveal')
+        if (!scope.classList.contains('reveal-lift')) scope.classList.add('reveal-lift')
+      }
+    }
+    const initReveal = (root = document) => {
+      normalizeSlideOnly(root)
+      const scope = root && root.nodeType === 1 ? root : document
+      const els = Array.from(scope.querySelectorAll('.reveal:not(.in), .reveal-lift:not(.in)'))
+      if (scope !== document && scope.classList && (scope.classList.contains('reveal') || scope.classList.contains('reveal-lift')) && !scope.classList.contains('in')) els.push(scope)
+      els.forEach((e) => io.observe(e))
+    }
+    window.initReveal = initReveal
+    initReveal(document)
+    const mo = new MutationObserver((mutations) => {
+      mutations.forEach((m) => {
+        m.addedNodes.forEach((node) => { if (node.nodeType === 1) initReveal(node) })
+      })
+    })
+    mo.observe(document.body, { childList: true, subtree: true })
+    return () => { io.disconnect(); mo.disconnect(); delete window.initReveal }
   }, [servicePage, sellPage, buyPage])
 
   const changeDevice = useCallback((d) => {
