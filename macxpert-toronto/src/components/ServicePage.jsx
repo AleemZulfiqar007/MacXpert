@@ -40,13 +40,13 @@ export default function ServicePage({ page, onBook }) {
               <button className="btn btn-primary" type="button" onClick={() => onBook(page.slug)}>Book this repair →</button>
               <a className="btn btn-outline" href={SHOP.phoneHref}>Call {SHOP.phoneDisplay}</a>
             </div>
-            <div className="sp-pills"><span className="pill diag">Free diagnostics</span><span className="pill">{page.turnaround}</span><span className="pill">3-month warranty</span></div>
+            <div className="sp-pills"><span className="pill diag">Diagnostics</span><span className="pill">{page.turnaround}</span><span className="pill">3-month warranty</span></div>
           </div>
           <div className="sp-hero-media"><img src={page.img} alt={page.alt} /></div>
         </div>
 
         <h2 style={{ margin: '54px 0 8px' }}>What we repair</h2>
-        <p className="lead" style={{ margin: '0 0 22px', maxWidth: '62ch' }}>Every job starts with free in-store diagnostics. Your price is confirmed after free in-store diagnostics — before any work begins — and no repair starts without your approval.</p>
+        <p className="lead" style={{ margin: '0 0 22px', maxWidth: '62ch' }}>Every job starts with in-store diagnostics. Your price is confirmed after in-store diagnostics — before any work begins — and no repair starts without your approval.</p>
         <div className="sp-repairs">
           {page.repairs.map(([t, d]) => (
             <div className="sp-repair" key={t}><span className="check"><CheckSvg /></span><h3>{t}</h3><p>{d}</p></div>
@@ -55,15 +55,15 @@ export default function ServicePage({ page, onBook }) {
 
         <h2 style={{ margin: '54px 0 22px' }}>Good to know</h2>
         <div className="sp-info">
-          <div className="sp-info-card"><h3><span className="ic"><SearchIcon /></span>Pricing — confirmed after free diagnostics</h3><p>We don&rsquo;t publish pre-set prices, because every fault is different. Your device is diagnosed free in store, we confirm the exact price with you, and work starts only when you approve it. If you decide not to repair, you pay nothing.</p></div>
+          <div className="sp-info-card"><h3><span className="ic"><SearchIcon /></span>Pricing — confirmed after diagnostics</h3><p>We don&rsquo;t publish pre-set prices, because every fault is different. Your device is diagnosed in store, we confirm the exact price with you, and work starts only when you approve it. If you decide not to repair, you pay nothing.</p></div>
           <div className="sp-info-card"><h3><span className="ic"><ShieldIcon /></span>3-month warranty</h3><p>This repair is covered by a 3-month warranty on parts and workmanship. The warranty excludes liquid or water damage, LCD cracks, and pressure damage. See our <a href="#warranty" style={{ color: 'var(--brand-bright)', fontWeight: 700 }}>warranty policy</a> for full details.</p></div>
-          <div className="sp-info-card"><h3><span className="ic"><ClockIcon /></span>Turnaround</h3><p>{page.turnaround}. We&rsquo;ll confirm your exact timeline after the free diagnosis, once we&rsquo;ve seen the device.</p></div>
+          <div className="sp-info-card"><h3><span className="ic"><ClockIcon /></span>Turnaround</h3><p>{page.turnaround}. We&rsquo;ll confirm your exact timeline after the diagnosis, once we&rsquo;ve seen the device.</p></div>
           <div className="sp-info-card"><h3><span className="ic"><PinIcon /></span>Walk-in, mail-in &amp; in-home</h3><ul><li><b>Walk-in:</b> visit 1022 St Clair Ave W, Toronto — no appointment needed.</li><li><b>Mail-in:</b> send your device from anywhere in Canada.</li><li><b>In-home visit:</b> a technician comes to you — ideal for desktops and larger setups.</li></ul></div>
         </div>
         {extra && <div className="sp-extra"><b>{extra.title}</b><p>{extraBody}</p></div>}
 
         <div className="sp-cta" style={{ marginTop: 40 }}>
-          <div><h2>Ready to book your {page.title.toLowerCase()}?</h2><p>Book online in under a minute, call us at {SHOP.phoneDisplay}, or just walk in. Diagnostics are free and your price is confirmed before any work starts.</p></div>
+          <div><h2>Ready to book your {page.title.toLowerCase()}?</h2><p>Book online in under a minute, call us at {SHOP.phoneDisplay}, or just walk in. Diagnostics will be done first and your price is confirmed before any work starts.</p></div>
           <div className="sp-actions" style={{ margin: 0 }}><button className="btn btn-bright" type="button" onClick={() => onBook(page.slug)}>Book this repair →</button><a className="btn btn-outline" href="#services">All services</a></div>
         </div>
 

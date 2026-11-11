@@ -21,7 +21,7 @@ export default function Hero() {
         <div className="hero-copy">
           <p className="eyebrow">Skilled Professionals</p>
           <h1>Smart Repairs.<br />Honest Service.</h1>
-          <p>Whether it&rsquo;s your iPhone, MacBook, smartphone or gaming console — MacXpert Toronto&rsquo;s experts diagnose it free in store, confirm the exact price with you before any work starts, and repair it with genuine or OEM-grade parts that last.</p>
+          <p>Whether it&rsquo;s your iPhone, MacBook, smartphone or gaming console — MacXpert Toronto&rsquo;s experts diagnose it in store, confirm the exact price with you before any work starts, and repair it with genuine or OEM-grade parts that last.</p>
           <div className="hero-actions">
             <a className="btn btn-primary" href="#booking">Book a Repair →</a>
             <a className="btn btn-outline" href="#services">Explore Services</a>
@@ -29,7 +29,7 @@ export default function Hero() {
           <div className="hero-stats">
             <div><b>Google reviews</b><span><a href={SHOP.mapsUrl} target="_blank" rel="noopener" style={{ color: 'var(--brand-bright)', fontWeight: 700, textDecoration: 'none' }}>Read them on our Google listing →</a></span></div>
             <div><b>3-month</b><span>Warranty on every repair</span></div>
-            <div><b>Free</b><span>Diagnostics — always free</span></div>
+            <div><b>Diagnosis</b><span>Diagnostics on every device</span></div>
           </div>
         </div>
       </div>

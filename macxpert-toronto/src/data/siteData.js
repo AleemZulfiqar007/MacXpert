@@ -1,6 +1,6 @@
 // All site content lives here — edit services, hours and policies in this one file.
 // Content matches the hosted preview exactly (same text, same images).
-// No fixed prices anywhere: every repair is diagnosed free in store and the exact
+// No fixed prices anywhere: every repair is diagnosed in store and the exact
 // price is confirmed with the customer before any work starts.
 
 export const SHOP = {
@@ -33,19 +33,19 @@ export const DEVICES = Object.keys(ISSUES);
 // Turnaround shown in the booking form's "Your repair" display box —
 // timing only, never a price. Keyed by device, with issue-level overrides.
 export const TURNAROUNDS = {
-  "iPhone": { time: "Most repairs same-day", note: "Screens, batteries and back glass are usually finished the same day you drop in. Your exact timeline is confirmed after the free diagnosis." },
+  "iPhone": { time: "Most repairs same-day", note: "Screens, batteries and back glass are usually finished the same day you drop in. Your exact timeline is confirmed after the diagnosis." },
   "Samsung / Android": { time: "24–48 hours", note: "Most Samsung and Android repairs are done within one to two days, depending on parts for your model." },
-  "MacBook / iMac": { time: "Screen & battery typically 1 day", note: "Board-level and other complex work can take a few days — we confirm your timeline after the free diagnosis." },
+  "MacBook / iMac": { time: "Screen & battery typically 1 day", note: "Board-level and other complex work can take a few days — we confirm your timeline after the diagnosis." },
   "iPad / Tablet": { time: "Same day – 1 day", note: "Most tablet repairs are finished the same day or the next." },
   "Laptop / PC": { time: "24–48 hours", note: "Most laptop and desktop repairs are done within one to two days." },
   "Game Console": { time: "Same day – 2 days", note: "HDMI ports, fans and disc drives are usually turned around within two days." },
   "Smartwatch": { time: "1–2 days", note: "Most smartwatch repairs are finished within one to two days." },
   "TV": { time: "In-home visits available", note: "We come to you — your visit timing is confirmed when we call to confirm your booking." },
-  "Data Recovery": { time: "Software cases 24–48 hours", note: "Complex physical recovery takes longer and is confirmed after the free assessment. No data, no fee." },
-  "Other": { time: "Confirmed after free diagnostics", note: "Once we've seen the device, we confirm your timeline along with your price — before any work begins." }
+  "Data Recovery": { time: "Software cases 24–48 hours", note: "Complex physical recovery takes longer and is confirmed after the assessment. No data, no fee." },
+  "Other": { time: "Confirmed after diagnostics", note: "Once we've seen the device, we confirm your timeline along with your price — before any work begins." }
 };
 export const ISSUE_TURNAROUNDS = {
-  "Logic board repair": { time: "A few days", note: "Board-level work takes a few days — we confirm your timeline after the free diagnosis." },
+  "Logic board repair": { time: "A few days", note: "Board-level work takes a few days — we confirm your timeline after the diagnosis." },
   "Liquid spill": { time: "Assessed after cleaning & diagnosis", note: "Liquid damage is timed and priced only after ultrasonic cleaning and a full diagnosis." },
   "Water damage": { time: "Assessed after cleaning & diagnosis", note: "Liquid damage is timed and priced only after ultrasonic cleaning and a full diagnosis." },
   "Water / liquid damage": { time: "Assessed after cleaning & diagnosis", note: "Liquid damage is timed and priced only after ultrasonic cleaning and a full diagnosis." }
@@ -57,7 +57,7 @@ export const ISSUE_TURNAROUNDS = {
 export const SERVICES = [
   { route: "iphone", device: "iPhone", img: "/images/iphone.jpg", alt: "Cracked iPhone screen held in hand before repair", title: "iPhone Repair", text: "Is a cracked screen, shattered back glass, or a failing battery slowing you down? At our St Clair Ave W store we specialize in professional iPhone repair — screens, back glass, batteries and more.", time: "Most repairs same-day" },
   { route: "macbook", device: "MacBook / iMac", img: "/images/macbook.jpg", alt: "Hands lifting a MacBook logic board during a board-level repair", title: "MacBook Repair", text: "Cracked screen, dead battery, sticky keyboard or a MacBook that won't turn on — we repair MacBook Air and Pro, Intel and Apple Silicon, down to component level.", time: "Screen & battery: typically 1 day" },
-  { route: "imac", device: "MacBook / iMac", img: "/images/macbook.jpg", alt: "Technician diagnosing an iMac on the repair bench", title: "iMac Repair", text: "Screen replacement, hardware upgrades and software repair for Apple's all-in-one desktop — diagnosed free in store before any work begins.", time: "Same day – a few days" },
+  { route: "imac", device: "MacBook / iMac", img: "/images/macbook.jpg", alt: "Technician diagnosing an iMac on the repair bench", title: "iMac Repair", text: "Screen replacement, hardware upgrades and software repair for Apple's all-in-one desktop — diagnosed in store before any work begins.", time: "Same day – a few days" },
   { route: "motherboard", device: "MacBook / iMac", img: "/images/macbook.jpg", alt: "Logic board under inspection for component-level motherboard repair", title: "Motherboard-Level Repair", text: "Dead board? We diagnose and repair only the faulty chip or component — microsoldering, thermal imaging and short-circuit repair instead of a full board replacement.", time: "A few days" },
   { route: "liquid-damage", device: "iPhone", img: "/images/android.jpg", alt: "Technician cleaning a liquid-damaged phone during ultrasonic treatment", title: "Liquid Damage Repair", text: "Spilled water, coffee or worse? Liquid damage is assessed case by case with ultrasonic cleaning and a full corrosion check for MacBook, iPhone and Android.", time: "Quoted after cleaning & diagnosis" },
   // { device: "iPad / Tablet", img: "/images/ipad.jpg", alt: "Tablet with a cracked screen ready for glass replacement", title: "iPad & Tablet Repair", text: "Broken display, battery swelling, or charging issues — we bring your tablet back to smooth, seamless performance for work, school or play.", time: "Same day – 1 day" },
@@ -71,8 +71,8 @@ export const SERVICES = [
 
 export const FAQS = [
   { q: "What devices do you repair?", a: "A wide range of gadgets: iPhones, iMacs, MacBooks, iPads, Android phones, laptops, desktops, smartwatches, gaming consoles, printers, smart TVs and more. We specialize in Apple devices and also repair Samsung, Dell, HP, Lenovo, Sony, Microsoft, Xiaomi, Oppo, Vivo, LG and many other brands." },
-  { q: "How much will my repair cost?", a: "We don't use pre-set price lists. Bring your device in (or mail it / book a visit) and we'll diagnose it free at the store, then tell you exactly how much the repair will cost. Work only starts once you approve the price — if you decide not to repair, you pay nothing." },
-  { q: "How long does a typical repair take?", a: "Most basic repairs, like screen or battery replacements, are completed within a few hours. Complex issues such as motherboard or liquid damage may take 2–5 working days depending on part availability. We'll confirm your timeline after the free diagnosis." },
+  { q: "How much will my repair cost?", a: "We don't use pre-set price lists. Bring your device in (or mail it / book a visit) and we'll diagnose it at the store, then tell you exactly how much the repair will cost. Work only starts once you approve the price — if you decide not to repair, you pay nothing." },
+  { q: "How long does a typical repair take?", a: "Most basic repairs, like screen or battery replacements, are completed within a few hours. Complex issues such as motherboard or liquid damage may take 2–5 working days depending on part availability. We'll confirm your timeline after the diagnosis." },
   { q: "Do you only take walk-ins, or also mail-in and in-home repairs?", a: "All three. Walk into our St Clair Ave W store any time during opening hours, mail your device in from anywhere in Canada, or book an in-home visit — ideal for TVs and desktop setups. Choose your option when you book." },
   { q: "Is my data safe during a repair?", a: "We take your data privacy very seriously and never access personal files, photos or messages. As a safety measure, we always recommend backing up your data before submitting your device for repair — we can help you make a backup in store." },
   { q: "What warranty do I get?", a: "All repairs come with a 3-month warranty covering parts and workmanship. The warranty does not cover liquid or water damage, LCD cracks, or pressure damage. See our warranty policy for full details.", linkText: "warranty policy", linkHref: "#warranty" },
@@ -111,7 +111,7 @@ export const POLICIES = [
       ["Defective goods:", "if an item you bought from us is defective, we will exchange it for the same or an equivalent item."],
       ["Proof of purchase:", "please bring your receipt and the item in its original condition for any exchange."],
       ["Repairs:", "issues with a completed repair are handled under our 3-month warranty on parts and workmanship rather than by refund."],
-      ["Change of mind:", "because diagnostics are free and every price is approved by you before work begins, change-of-mind returns are not accepted."]
+      ["Change of mind:", "Every price is approved by you before work begins, change-of-mind returns are not accepted."]
     ]
   },
   {
@@ -122,14 +122,14 @@ export const POLICIES = [
       ["Not covered:", "liquid or water damage."],
       ["Not covered:", "LCD cracks or any cracked glass/display after repair."],
       ["Not covered:", "pressure damage, accidental or physical damage, and faults unrelated to the original repair."],
-      ["To claim:", "bring your device and receipt to the store within the warranty period and we'll assess it free."]
+      ["To claim:", "bring your device and receipt to the store within the warranty period and we'll assess it."]
     ]
   }
 ];
 
 // ---------------------------------------------------------------------------
 // Separate service pages (hash routes: #/service/<slug>) — content exactly
-// as on the preview. No prices anywhere — the price is confirmed after free
+// as on the preview. No prices anywhere — the price is confirmed after
 // in-store diagnostics. Every repair includes a 3-month warranty on parts
 // and workmanship (excludes liquid/water damage, LCD cracks and pressure
 // damage), and walk-in, mail-in and in-home options are offered.
@@ -139,7 +139,7 @@ export const SERVICE_PAGES = [
   {
     slug: "macbook", title: "MacBook Repair", device: "MacBook / iMac", issue: null, note: null,
     img: "/images/macbook.jpg", alt: "Technician repairing a MacBook logic board on the bench",
-    intro: "You don't need a brand-new computer when your MacBook fails. At our St Clair Ave W store we repair MacBooks down to component level — screens, batteries, keyboards and boards — starting with free diagnostics and a confirmed quote before any work begins.",
+    intro: "You don't need a brand-new computer when your MacBook fails. At our St Clair Ave W store we repair MacBooks down to component level — screens, batteries, keyboards and boards — starting with diagnostics and a confirmed quote before any work begins.",
     covers: "Covers MacBook Air and MacBook Pro — Intel and Apple Silicon models.",
     turnaround: "Screen and battery typically one day",
     repairs: [
@@ -148,7 +148,7 @@ export const SERVICE_PAGES = [
       ["Keyboard repair & replacement", "Sticky, unresponsive or damaged keys repaired, or the full keyboard replaced."],
       ["Trackpad repair", "Trackpads that click poorly, drift or stop responding — repaired or replaced."],
       ["Fan & cooling fixes", "Loud fans, overheating and thermal shutdowns fixed with fan and cooling-system repairs."],
-      ["System diagnostics", "Full system diagnostics with a free diagnosis and quote — you approve the price before we start."],
+      ["System diagnostics", "Full system diagnostics and quote — you approve the price before we start."],
       ["RAM & SSD upgrades", "Memory and storage upgrades that make an older MacBook feel fast again."]
     ],
     extra: { title: "Need board-level work?", text: "If the fault is on the logic board itself, see our motherboard-level repair page — we repair the faulty component instead of replacing the whole board.", linkText: "motherboard-level repair page", linkHref: "#/service/motherboard" }
@@ -156,14 +156,14 @@ export const SERVICE_PAGES = [
   {
     slug: "imac", title: "iMac Repair", device: "MacBook / iMac", issue: null, note: null,
     img: "/images/macbook.jpg", alt: "Technician diagnosing an iMac on the repair bench",
-    intro: "A cracked iMac screen, a painfully slow drive or an iMac that won't boot doesn't mean replacing the whole machine. We diagnose every iMac free in store, confirm the price with you, and then repair or upgrade it properly.",
+    intro: "A cracked iMac screen, a painfully slow drive or an iMac that won't boot doesn't mean replacing the whole machine. We diagnose every iMac in store, confirm the price with you, and then repair or upgrade it properly.",
     covers: "Covers iMac and iMac Pro models — Intel and Apple Silicon.",
-    turnaround: "Confirmed after free diagnostics",
+    turnaround: "Confirmed after diagnostics",
     repairs: [
       ["Screen replacement", "Cracked, flickering or failing iMac displays replaced and calibrated."],
       ["Hardware upgrades", "RAM and storage upgrades — including SSD upgrades that transform a slow, spinning-drive iMac."],
       ["Software repair", "macOS faults, boot problems and software errors diagnosed and repaired."],
-      ["Free diagnostics", "Every iMac starts with free diagnostics and a confirmed quote — no work begins without your approval."]
+      ["Diagnostics", "Every iMac starts with diagnostics and a confirmed quote — no work begins without your approval."]
     ],
     extra: { title: "Too big to bring in?", text: "iMacs are ideal for our in-home visit option — choose it when you book and a technician comes to you." }
   },
@@ -185,7 +185,7 @@ export const SERVICE_PAGES = [
   {
     slug: "samsung", title: "Samsung / Android Repair", device: "Samsung / Android", issue: null, note: null,
     img: "/images/android.jpg", alt: "Technician inspecting a disassembled Android phone under a magnifier",
-    intro: "A shattered screen, a battery that dies by lunch or a phone stuck on its logo shouldn't leave you disconnected. We repair Samsung and Android phones with parts matched to your exact model, confirmed after free in-store diagnostics.",
+    intro: "A shattered screen, a battery that dies by lunch or a phone stuck on its logo shouldn't leave you disconnected. We repair Samsung and Android phones with parts matched to your exact model, confirmed after in-store diagnostics.",
     covers: "Brands: Samsung, Google Pixel, Motorola, OnePlus and others.",
     turnaround: "24–48 hours",
     repairs: [
@@ -201,7 +201,7 @@ export const SERVICE_PAGES = [
   {
     slug: "laptop", title: "Laptop & Desktop Repair", device: "Laptop / PC", issue: null, note: null,
     img: "/images/laptop.jpg", alt: "Technician workspace with a laptop undergoing diagnosis",
-    intro: "A broken laptop screen, a sudden blue screen or a desktop that refuses to power on can halt your whole day. We find the real cause with free diagnostics, confirm the exact price with you, and fix it properly — laptops and desktops alike.",
+    intro: "A broken laptop screen, a sudden blue screen or a desktop that refuses to power on can halt your whole day. We find the real cause with diagnostics, confirm the exact price with you, and fix it properly — laptops and desktops alike.",
     covers: "All major brands — Windows and Mac.",
     turnaround: "24–48 hours",
     repairs: [
@@ -226,7 +226,7 @@ export const SERVICE_PAGES = [
       ["Short-circuit repair", "Short circuits located with thermal imaging and repaired at component level."],
       ["A protected bench", "Microsoldering tools, thermal imaging and ESD protection on every board-level job."]
     ],
-    extra: { title: "Dead device? Start with free diagnostics", text: "Board-level faults start with free in-store diagnostics. We confirm the exact price with you before any board work begins — no approval, no repair, no charge." }
+    extra: { title: "Dead device? Start with diagnostics", text: "Board-level faults start with in-store diagnostics. We confirm the exact price with you before any board work begins — no approval, no repair, no charge." }
   },
   {
     slug: "liquid-damage", title: "Liquid Damage Repair", device: "iPhone", issue: "Water damage", note: "Liquid damage repair — please assess my device.",
@@ -245,7 +245,7 @@ export const SERVICE_PAGES = [
   {
     slug: "data-recovery", title: "Data Recovery", device: "Data Recovery", issue: null, note: null,
     img: "/images/data-recovery.jpg", alt: "Hard drives on a bench during a data recovery assessment",
-    intro: "Losing access to business documents, photos or irreplaceable family memories is stressful — but it doesn't have to be permanent. We assess your drive or device free, explain honestly what can be recovered, and you only pay if the data comes back.",
+    intro: "Losing access to business documents, photos or irreplaceable family memories is stressful — but it doesn't have to be permanent. We assess your drive or device, explain honestly what can be recovered, and you only pay if the data comes back.",
     covers: "Hard drives, SSDs, RAID arrays, phones, tablets, USB drives and memory cards.",
     turnaround: "Standard software cases 24–48 hours; complex physical cases take longer",
     repairs: [

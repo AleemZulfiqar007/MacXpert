@@ -13,15 +13,15 @@ const METHODS = [
 // Left panel — the preview's full "How our pricing works" wording.
 const PRICING_STEPS_LEFT = [
   ['Bring it in, mail it, or book a visit', 'Walk into the store, send your device by mail, or have a technician come to you.'],
-  ['Free diagnosis at the store', 'Our technicians test your device and find the real fault — diagnostics are always free.'],
+  ['Diagnosis at the store', 'Our technicians test your device and find the real fault.'],
   ['We confirm the price with you', "You're told exactly how much the repair will cost before any work begins. No approval, no repair, no charge."],
   ["Pay when it's fixed", 'You pay in store only once the repair is done and tested — covered by a 3-month warranty.'],
 ]
 
 // Form panel — the preview's shorter "How our pricing works" wording.
 const PRICING_STEPS_FORM = [
-  ['Free diagnostics', 'Every repair starts with a free in-store diagnosis.'],
-  ['We confirm the price', 'The price is confirmed with you after the free diagnostics, before any work starts. There are no pre-determined charges.'],
+  ['Diagnostics', 'Every repair starts with a in-store diagnosis.'],
+  ['We confirm the price', 'The price is confirmed with you after the diagnostics, before any work starts. There are no pre-determined charges.'],
   ['You approve first', 'No work starts until you approve the price.'],
   ['Pay in store', 'You pay in store when the repair is done — nothing is charged online. Every repair carries a 3-month warranty on parts and workmanship (excludes liquid/water damage, LCD cracks and pressure damage).'],
 ]
@@ -191,7 +191,7 @@ export default function Booking({ device, issue, onDeviceChange, onIssueChange, 
                   <p className="ta-note">{ta.note}</p>
                   <ul>
                     <li><CheckIcon />No pre-determined charges — your price is confirmed with you before any work begins</li>
-                    <li><CheckIcon />Free diagnostics on every device</li>
+                    <li><CheckIcon />Diagnostics on every device</li>
                     <li><CheckIcon />3-month warranty on parts &amp; workmanship</li>
                   </ul>
                 </div>
@@ -235,14 +235,14 @@ export default function Booking({ device, issue, onDeviceChange, onIssueChange, 
                   </div>
                   <label className="f"><span>Tell us what happened</span><textarea name="notes" placeholder="e.g. Dropped it this morning — screen is cracked and touch works in some spots." value={form.notes} onChange={set('notes')}></textarea></label>
                   <button className="btn btn-primary btn-block" type="submit">Confirm Booking Request →</button>
-                  <p className="note" style={{ marginTop: 10, textAlign: 'center' }}>This sends a booking request — we&rsquo;ll call or email to confirm. Your price is confirmed free after in-store diagnosis. Nothing is charged online.</p>
+                  <p className="note" style={{ marginTop: 10, textAlign: 'center' }}>This sends a booking request — we&rsquo;ll call or email to confirm. Your price is confirmed after in-store diagnosis. Nothing is charged online.</p>
                 </form>
               </div>
             ) : (
               <div className="success" id="bookSuccess" style={{ display: 'block' }} aria-live="polite">
                 <span className="big-check"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg></span>
                 <h3>Booking request received!</h3>
-                <p className="sub" style={{ marginBottom: 0 }}>Show this reference when you arrive. We&rsquo;ll confirm your booking shortly by phone or email, and confirm your price after free in-store diagnosis.</p>
+                <p className="sub" style={{ marginBottom: 0 }}>Show this reference when you arrive. We&rsquo;ll confirm your booking shortly by phone or email, and confirm your price after in-store diagnosis.</p>
                 <div className="ref-code">{booking.ref}</div>
                 <dl>
                   <div><dt>Name</dt><dd>{booking.name}</dd></div>
@@ -250,7 +250,7 @@ export default function Booking({ device, issue, onDeviceChange, onIssueChange, 
                   <div><dt>Issue</dt><dd>{booking.issue}</dd></div>
                   <div><dt>Preferred date</dt><dd>{booking.date}</dd></div>
                   <div><dt>Method</dt><dd>{booking.method}</dd></div>
-                  <div><dt>Price</dt><dd>Confirmed free after in-store diagnosis</dd></div>
+                  <div><dt>Price</dt><dd>Confirmed after in-store diagnosis</dd></div>
                   <div><dt>Phone</dt><dd>{booking.phone}</dd></div>
                 </dl>
                 <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', justifyContent: 'center' }}>

@@ -2,7 +2,7 @@ import { SERVICES } from '../data/siteData.js'
 
 // 12 separate service cards, exactly as on the preview: image (linked to
 // the service page where the card has one), title, text, a green
-// "Free diagnostics" pill plus the card's own time pill, a
+// "Diagnostics" pill plus the card's own time pill, a
 // "Book this repair →" button and — for the 8 cards with a service
 // page — a "View service page →" link.
 export default function Services({ onBookService, onBookDevice }) {
@@ -12,7 +12,7 @@ export default function Services({ onBookService, onBookDevice }) {
         <div className="sec-head">
           <p className="eyebrow center">Issues We Repair</p>
           <h2>Your one-stop solution for every gadget repair</h2>
-          <p>Free diagnostics on everything. We confirm the exact price with you in store after diagnosis — before any repair begins — so there are never surprises.</p>
+          <p>Diagnostics on everything. We confirm the exact price with you in store after diagnosis — before any repair begins — so there are never surprises.</p>
         </div>
         <div className="svc-grid">
           {SERVICES.map((s) => (
@@ -23,7 +23,7 @@ export default function Services({ onBookService, onBookDevice }) {
               <div className="svc-body">
                 <h3>{s.title}</h3>
                 <p>{s.text}</p>
-                <div className="svc-meta"><span className="pill diag">Free diagnostics</span><span className="pill">{s.time}</span></div>
+                <div className="svc-meta"><span className="pill diag">Diagnostics</span><span className="pill">{s.time}</span></div>
                 <div className="svc-actions">
                   <button className="btn btn-sm" type="button" onClick={() => (s.route ? onBookService(s.route) : onBookDevice(s.device))}>Book this repair →</button>
                   {s.route && <a className="svc-link" href={`#/service/${s.route}`}>View service page →</a>}
