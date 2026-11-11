@@ -52,8 +52,8 @@ header.nav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1
 .logo-text b{font-size:1.3rem;font-weight:900;letter-spacing:-.03em;display:block}
 .logo-text b span{color:var(--brand-bright)}
 .logo-text small{font-size:.56rem;letter-spacing:.2em;font-weight:700;color:var(--ink-3);text-transform:uppercase}
-nav.main{display:flex;gap:24px;margin-left:auto}
-nav.main a{text-decoration:none;font-weight:600;font-size:.95rem;color:var(--ink)}
+nav.main{display:flex;gap:19px;margin-left:auto;align-items:center}
+nav.main a{text-decoration:none;font-weight:600;font-size:.93rem;color:var(--ink);white-space:nowrap}
 nav.main a:hover{color:var(--brand-bright)}
 .nav-cta{margin-left:6px}
 .burger{display:none;margin-left:auto;background:none;border:1px solid var(--line-strong);border-radius:9px;width:44px;height:44px;cursor:pointer;color:var(--ink)}
@@ -293,3 +293,61 @@ main[hidden]{display:none !important}
 .turnaround li svg{color:var(--green);flex:none;margin-top:3px}
 .pricing-steps{border-top:1px solid var(--line);padding-top:18px;margin:0 0 20px}
 .pricing-steps h4{font-size:1rem;margin:0 0 12px}
+
+/* Sell Your Device — trade-in calculator */
+.syd-conditions{border:1.5px solid var(--line-strong);border-radius:12px;padding:16px 18px;margin:0 0 18px;background:var(--bg)}
+.syd-conditions legend{font-size:.82rem;font-weight:700;padding:0 6px}
+.syd-check{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;cursor:pointer;font-weight:700;font-size:.86rem;background:var(--bg-card)}
+.syd-check:last-child{margin-bottom:0}
+.syd-check input{width:auto;accent-color:var(--brand);flex:none}
+.syd-check .syd-ded{margin-left:auto;color:var(--red);font-weight:800;flex:none}
+.syd-value{border:1.5px solid var(--line-strong);border-radius:12px;padding:18px;background:var(--bg-soft);text-align:center;margin:0 0 18px}
+.syd-value-label{display:block;font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.syd-value-amount{display:block;font-size:2.4rem;font-weight:900;line-height:1.15;color:var(--brand)}
+.syd-value-note{display:block;color:var(--ink-2);font-size:.86rem;margin-top:4px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+
+/* Black Friday Deals — homepage offers grid */
+.bf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:1020px){.bf-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.bf-grid{grid-template-columns:1fr}}
+.bf-card{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.bf-tag{font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:var(--navy);color:#fff;padding:5px 10px;border-radius:6px}
+.bf-card h3{font-size:1.45rem;font-weight:900;color:var(--brand)}
+.bf-card p{margin:0;color:var(--ink-2);font-size:.98rem;font-weight:600;flex:1}
+.bf-call{background:transparent;color:var(--brand);border:1.5px solid var(--line-strong)}
+.bf-call:hover{border-color:var(--brand);background:var(--accent-soft)}
+
+/* Reveal-on-scroll — cards and section content slide/fade in as they
+   enter the viewport (like themactech.ca), especially noticeable on
+   mobile. Subtle and smooth; .in is added by an IntersectionObserver
+   in App.jsx. Visitors who prefer reduced motion see content at once. */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,.61,.36,1)}
+.reveal-left{transform:translateX(-36px)}
+.reveal-right{transform:translateX(36px)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* Grid children must be allowed to shrink below their content's
+   min-content size — otherwise a column overflows the phone screen
+   on the right (this was pushing the FAQ column ~18px off-screen). */
+.two-col>*,.book-grid>*,.hero-grid>*,.sp-hero>*{min-width:0}
+/* Sideways reveal shifts must never create a horizontal scrollbar. */
+html,body{overflow-x:clip}
+
+/* Mobile spacing — the hero copy ("Smart Repairs. Honest Service.")
+   and the FAQ ("Questions, answered") section were touching the left
+   and right edges of phone screens. Give both comfortable side room. */
+@media(max-width:640px){
+  .wrap{padding-left:24px;padding-right:24px}
+  .hero-grid{padding-top:32px}
+  .hero-copy{padding-left:8px;padding-right:8px}
+  .hero-copy p{max-width:100%}
+  .hero-actions .btn{padding-left:18px;padding-right:18px}
+  #contact .wrap{padding-left:24px;padding-right:24px}
+  .faq-item{margin-right:2px}
+  .faq-q{padding:16px 20px 16px 18px}
+  .faq-a{padding:0 20px 16px 18px}
+  .panel{padding:24px 20px}
+  section{padding:56px 0}
+}

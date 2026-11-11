@@ -2,21 +2,21 @@ import { SERVICES } from '../data/siteData.js'
 
 // 12 separate service cards, exactly as on the preview: image (linked to
 // the service page where the card has one), title, text, a green
-// "Diagnostics" pill plus the card's own time pill, a
+// "Free diagnostics" pill plus the card's own time pill, a
 // "Book this repair →" button and — for the 8 cards with a service
 // page — a "View service page →" link.
 export default function Services({ onBookService, onBookDevice }) {
   return (
     <section id="services">
       <div className="wrap">
-        <div className="sec-head">
+        <div className="sec-head reveal">
           <p className="eyebrow center">Issues We Repair</p>
           <h2>Your one-stop solution for every gadget repair</h2>
           <p>Diagnostics on everything. We confirm the exact price with you in store after diagnosis — before any repair begins — so there are never surprises.</p>
         </div>
         <div className="svc-grid">
           {SERVICES.map((s) => (
-            <article className="svc" key={s.title}>
+            <article className="svc reveal" key={s.title}>
               {s.route
                 ? <a href={`#/service/${s.route}`} aria-label={`${s.title} — view service page`}><img src={s.img} alt={s.alt} loading="lazy" /></a>
                 : <img src={s.img} alt={s.alt} loading="lazy" />}

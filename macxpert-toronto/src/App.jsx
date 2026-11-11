@@ -4,6 +4,9 @@ import Hero from './components/Hero.jsx'
 import DeviceStrip from './components/DeviceStrip.jsx'
 import Services from './components/Services.jsx'
 import ServicePage from './components/ServicePage.jsx'
+import SellYourDevice from './components/SellYourDevice.jsx'
+import BuyAPhone from './components/BuyAPhone.jsx'
+import BlackFridayDeals from './components/BlackFridayDeals.jsx'
 import { WhyUs, Process } from './components/WhyProcess.jsx'
 import Booking from './components/Booking.jsx'
 import Reviews from './components/Reviews.jsx'
@@ -12,12 +15,21 @@ import Policies from './components/Policies.jsx'
 import Footer from './components/Footer.jsx'
 import { ISSUES, servicePageBySlug } from './data/siteData.js'
 
-// Hash routing for the separate service pages: #/service/<slug> shows that
-// service page; every other hash (#services, #booking, …) is the home page
-// with normal in-page anchor scrolling.
+// Hash routing for the separate pages: #/service/<slug> shows that service
+// page and #/sell-your-device shows the Sell Your Device / trade-in page;
+// every other hash (#services, #booking, …) is the home page with normal
+// in-page anchor scrolling.
 function routeFromHash() {
   const m = window.location.hash.match(/^#\/service\/([\w-]+)/)
   return m ? servicePageBySlug(m[1]) || null : null
+}
+
+function isSellRoute() {
+  return window.location.hash.startsWith('#/sell-your-device')
+}
+
+function isBuyRoute() {
+  return window.location.hash.startsWith('#/buy-a-phone')
 }
 
 function scrollToHash() {
@@ -37,18 +49,38 @@ export default function App() {
   const [issue, setIssue] = useState(ISSUES['iPhone'][0])
   const [toast, setToast] = useState('')
   const [servicePage, setServicePage] = useState(() => routeFromHash())
+  const [sellPage, setSellPage] = useState(() => isSellRoute())
+  const [buyPage, setBuyPage] = useState(() => isBuyRoute())
   const [notePreset, setNotePreset] = useState(null)
 
   useEffect(() => {
     const onHash = () => {
       const page = routeFromHash()
+      const sell = isSellRoute()
+      const buy = isBuyRoute()
       setServicePage(page)
-      if (page) window.scrollTo({ top: 0 })
+      setSellPage(sell)
+      setBuyPage(buy)
+      if (page || sell || buy) window.scrollTo({ top: 0 })
       else setTimeout(scrollToHash, 60)
     }
     window.addEventListener('hashchange', onHash)
     return () => window.removeEventListener('hashchange', onHash)
   }, [])
+
+  // Reveal-on-scroll: elements with .reveal (slide/fade variants) animate
+  // in when they enter the viewport, like themactech.ca — subtle, and
+  // disabled for visitors who prefer reduced motion (handled in CSS).
+  useEffect(() => {
+    const els = Array.from(document.querySelectorAll('.reveal:not(.in)'))
+    if (!els.length) return undefined
+    if (!('IntersectionObserver' in window)) { els.forEach((e) => e.classList.add('in')); return undefined }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target) } })
+    }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' })
+    els.forEach((e) => io.observe(e))
+    return () => io.disconnect()
+  }, [servicePage, sellPage, buyPage])
 
   const changeDevice = useCallback((d) => {
     setDevice(d)
@@ -56,7 +88,7 @@ export default function App() {
   }, [])
 
   const goToBooking = useCallback(() => {
-    if (window.location.hash.startsWith('#/service/')) {
+    if (window.location.hash.startsWith('#/service/') || window.location.hash.startsWith('#/sell-your-device') || window.location.hash.startsWith('#/buy-a-phone')) {
       window.location.hash = '#booking'
       // The home page has to render before #booking exists to scroll to.
       setTimeout(() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' }), 80)
@@ -93,7 +125,15 @@ export default function App() {
   return (
     <>
       <Header />
-      {servicePage ? (
+      {buyPage ? (
+        <main id="top">
+          <BuyAPhone showToast={showToast} />
+        </main>
+      ) : sellPage ? (
+        <main id="top">
+          <SellYourDevice showToast={showToast} />
+        </main>
+      ) : servicePage ? (
         <main id="top">
           <ServicePage page={servicePage} onBook={bookService} />
         </main>
@@ -101,6 +141,7 @@ export default function App() {
         <main id="top">
           <Hero />
           <DeviceStrip device={device} onSelect={changeDevice} />
+          <BlackFridayDeals />
           <Services onBookService={bookService} onBookDevice={bookDevice} />
           <WhyUs />
           <Process />

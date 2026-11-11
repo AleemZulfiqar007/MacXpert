@@ -21,13 +21,13 @@ export function WhyUs() {
   return (
     <section id="why" className="soft" style={{ paddingTop: 64, paddingBottom: 64 }}>
       <div className="wrap">
-        <div className="sec-head">
+        <div className="sec-head reveal">
           <p className="eyebrow center">Top Reasons</p>
           <h2>Why choose MacXpert?</h2>
         </div>
         <div className="why-grid">
           {WHY.map(([t, p]) => (
-            <div className="why" key={t}><span className="check"><Check /></span><div><h3>{t}</h3><p>{p}</p></div></div>
+            <div className="why reveal" key={t}><span className="check"><Check /></span><div><h3>{t}</h3><p>{p}</p></div></div>
           ))}
         </div>
       </div>
@@ -39,13 +39,13 @@ export function Process() {
   return (
     <section className="process">
       <div className="wrap">
-        <div className="sec-head" style={{ marginBottom: 0 }}>
+        <div className="sec-head reveal" style={{ marginBottom: 0 }}>
           <p className="eyebrow center">Services Process</p>
           <h2>Fixed in five simple steps</h2>
         </div>
         <div className="steps">
           {STEPS.map(([t, p], i) => (
-            <div className="step" key={t}><span className="tag">STEP {i + 1}</span><span className="num">{i + 1}</span><h3>{t}</h3><p>{p}</p></div>
+            <div className="step reveal" key={t}><span className="tag">STEP {i + 1}</span><span className="num">{i + 1}</span><h3>{t}</h3><p>{p}</p></div>
           ))}
         </div>
       </div>

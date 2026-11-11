@@ -57,16 +57,16 @@ export const ISSUE_TURNAROUNDS = {
 export const SERVICES = [
   { route: "iphone", device: "iPhone", img: "/images/iphone.jpg", alt: "Cracked iPhone screen held in hand before repair", title: "iPhone Repair", text: "Is a cracked screen, shattered back glass, or a failing battery slowing you down? At our St Clair Ave W store we specialize in professional iPhone repair — screens, back glass, batteries and more.", time: "Most repairs same-day" },
   { route: "macbook", device: "MacBook / iMac", img: "/images/macbook.jpg", alt: "Hands lifting a MacBook logic board during a board-level repair", title: "MacBook Repair", text: "Cracked screen, dead battery, sticky keyboard or a MacBook that won't turn on — we repair MacBook Air and Pro, Intel and Apple Silicon, down to component level.", time: "Screen & battery: typically 1 day" },
-  { route: "imac", device: "MacBook / iMac", img: "/images/macbook.jpg", alt: "Technician diagnosing an iMac on the repair bench", title: "iMac Repair", text: "Screen replacement, hardware upgrades and software repair for Apple's all-in-one desktop — diagnosed in store before any work begins.", time: "Same day – a few days" },
-  { route: "motherboard", device: "MacBook / iMac", img: "/images/macbook.jpg", alt: "Logic board under inspection for component-level motherboard repair", title: "Motherboard-Level Repair", text: "Dead board? We diagnose and repair only the faulty chip or component — microsoldering, thermal imaging and short-circuit repair instead of a full board replacement.", time: "A few days" },
-  { route: "liquid-damage", device: "iPhone", img: "/images/android.jpg", alt: "Technician cleaning a liquid-damaged phone during ultrasonic treatment", title: "Liquid Damage Repair", text: "Spilled water, coffee or worse? Liquid damage is assessed case by case with ultrasonic cleaning and a full corrosion check for MacBook, iPhone and Android.", time: "Quoted after cleaning & diagnosis" },
+  { route: "imac", device: "MacBook / iMac", img: "/images/imac.jpg", alt: "Apple iMac all-in-one desktop computer on a desk", title: "iMac Repair", text: "Screen replacement, hardware upgrades and software repair for Apple's all-in-one desktop — diagnosed in store before any work begins.", time: "Same day – a few days" },
+  { route: "motherboard", device: "MacBook / iMac", img: "/images/motherboard.jpg", alt: "Close-up of a computer motherboard circuit board with chips and slots", title: "Motherboard-Level Repair", text: "Dead board? We diagnose and repair only the faulty chip or component — microsoldering, thermal imaging and short-circuit repair instead of a full board replacement.", time: "A few days" },
+  { route: "liquid-damage", device: "iPhone", img: "/images/liquid-damage.jpg", alt: "Tipped-over glass spilling water across a laptop keyboard", title: "Liquid Damage Repair", text: "Spilled water, coffee or worse? Liquid damage is assessed case by case with ultrasonic cleaning and a full corrosion check for MacBook, iPhone and Android.", time: "Quoted after cleaning & diagnosis" },
   // { device: "iPad / Tablet", img: "/images/ipad.jpg", alt: "Tablet with a cracked screen ready for glass replacement", title: "iPad & Tablet Repair", text: "Broken display, battery swelling, or charging issues — we bring your tablet back to smooth, seamless performance for work, school or play.", time: "Same day – 1 day" },
-  { route: "laptop", device: "Laptop / PC", img: "/images/laptop.jpg", alt: "Technician workspace with a laptop undergoing diagnosis", title: "Laptop & Desktop Repair", text: "A broken laptop screen, a sudden blue screen error, or a desktop that refuses to power on can halt your whole day. We diagnose the real cause and fix it properly.", time: "24–48 hours" },
-  { route: "samsung", device: "Samsung / Android", img: "/images/android.jpg", alt: "Technician inspecting a disassembled Android phone under a magnifier", title: "Samsung / Android Repair", text: "A shattered screen, an unresponsive touchscreen, or a battery that dies halfway through the day shouldn't leave you disconnected. Samsung, Pixel, Motorola, OnePlus and more, repaired with parts matched to your model.", time: "24–48 hours" },
+  { route: "laptop", device: "Laptop / PC", img: "/images/laptop-repair.jpg", alt: "Open laptop computer on a desk", title: "Laptop & Desktop Repair", text: "A broken laptop screen, a sudden blue screen error, or a desktop that refuses to power on can halt your whole day. We diagnose the real cause and fix it properly.", time: "24–48 hours" },
+  { route: "samsung", device: "Samsung / Android", img: "/images/samsung.jpg", alt: "Samsung Galaxy smartphone held in a hand showing its home screen", title: "Samsung / Android Repair", text: "A shattered screen, an unresponsive touchscreen, or a battery that dies halfway through the day shouldn't leave you disconnected. Samsung, Pixel, Motorola, OnePlus and more, repaired with parts matched to your model.", time: "24–48 hours" },
   // { device: "Smartwatch", img: "/images/hero.jpg", alt: "Technician repairing small devices at a workbench", title: "Smartwatch Repair", text: "Whether your smartwatch has a cracked screen, faulty sensors, or battery problems, our experts bring it back to perfect sync and function.", time: "1–2 days" },
   { route: "data-recovery", device: "Data Recovery", img: "/images/data-recovery.jpg", alt: "Hard drives on a bench during a data recovery assessment", title: "Data Recovery", text: "Losing access to critical files, business documents, or irreplaceable family memories is stressful — but it doesn't have to be permanent. HDD, SSD, RAID and phone recovery. No data, no fee.", time: "Software cases 24–48 hours" },
   // { device: "TV", img: "/images/tv.webp", alt: "Technician repairing the internal electronics of a wall-mounted TV during an in-home visit", title: "In-Home TV Repair", text: "A sudden blank screen, distorted audio, or a television that refuses to connect to your streaming apps can disrupt your whole evening. Book an in-home visit and we'll fix it where it sits.", time: "In-home visits available" },
-  { device: "Game Console", img: "/images/console.jpg", alt: "Technician opening a game console to repair its cooling system", title: "Game Console Repair", text: "PS5, Xbox and Switch — HDMI ports, overheating, disc drives and controller drift, tested properly before pickup.", time: "Same day – 2 days" }
+  { device: "Game Console", img: "/images/playstation.jpg", alt: "Black PlayStation DualSense controller on a white background", title: "Game Console Repair", text: "PS5, Xbox and Switch — HDMI ports, overheating, disc drives and controller drift, tested properly before pickup.", time: "Same day – 2 days" }
 ];
 
 export const FAQS = [
@@ -155,7 +155,7 @@ export const SERVICE_PAGES = [
   },
   {
     slug: "imac", title: "iMac Repair", device: "MacBook / iMac", issue: null, note: null,
-    img: "/images/macbook.jpg", alt: "Technician diagnosing an iMac on the repair bench",
+    img: "/images/imac.jpg", alt: "Apple iMac all-in-one desktop computer on a desk",
     intro: "A cracked iMac screen, a painfully slow drive or an iMac that won't boot doesn't mean replacing the whole machine. We diagnose every iMac in store, confirm the price with you, and then repair or upgrade it properly.",
     covers: "Covers iMac and iMac Pro models — Intel and Apple Silicon.",
     turnaround: "Confirmed after diagnostics",
@@ -184,7 +184,7 @@ export const SERVICE_PAGES = [
   },
   {
     slug: "samsung", title: "Samsung / Android Repair", device: "Samsung / Android", issue: null, note: null,
-    img: "/images/android.jpg", alt: "Technician inspecting a disassembled Android phone under a magnifier",
+    img: "/images/samsung.jpg", alt: "Samsung Galaxy smartphone held in a hand showing its home screen",
     intro: "A shattered screen, a battery that dies by lunch or a phone stuck on its logo shouldn't leave you disconnected. We repair Samsung and Android phones with parts matched to your exact model, confirmed after in-store diagnostics.",
     covers: "Brands: Samsung, Google Pixel, Motorola, OnePlus and others.",
     turnaround: "24–48 hours",
@@ -200,7 +200,7 @@ export const SERVICE_PAGES = [
   },
   {
     slug: "laptop", title: "Laptop & Desktop Repair", device: "Laptop / PC", issue: null, note: null,
-    img: "/images/laptop.jpg", alt: "Technician workspace with a laptop undergoing diagnosis",
+    img: "/images/laptop-repair.jpg", alt: "Open laptop computer on a desk",
     intro: "A broken laptop screen, a sudden blue screen or a desktop that refuses to power on can halt your whole day. We find the real cause with diagnostics, confirm the exact price with you, and fix it properly — laptops and desktops alike.",
     covers: "All major brands — Windows and Mac.",
     turnaround: "24–48 hours",
@@ -216,7 +216,7 @@ export const SERVICE_PAGES = [
   },
   {
     slug: "motherboard", title: "Motherboard-Level Repair", device: "MacBook / iMac", issue: "Logic board repair", note: null,
-    img: "/images/macbook.jpg", alt: "Logic board under inspection for component-level motherboard repair",
+    img: "/images/motherboard.jpg", alt: "Close-up of a computer motherboard circuit board with chips and slots",
     intro: "When a board fails, most shops quote a full board replacement. We work at component level: we diagnose the board, find the faulty chip or component, and repair only that — on MacBook logic boards and other motherboards alike.",
     covers: "Logic board and motherboard repair for laptops, MacBooks and desktops.",
     turnaround: "A few days for logic board and complex work",
@@ -230,7 +230,7 @@ export const SERVICE_PAGES = [
   },
   {
     slug: "liquid-damage", title: "Liquid Damage Repair", device: "iPhone", issue: "Water damage", note: "Liquid damage repair — please assess my device.",
-    img: "/images/android.jpg", alt: "Technician cleaning a liquid-damaged phone during ultrasonic treatment",
+    img: "/images/liquid-damage.jpg", alt: "Tipped-over glass spilling water across a laptop keyboard",
     intro: "Spilled water, coffee or something worse? Switch the device off, don't charge it, and get it to us quickly. Liquid damage is assessed case by case — every device is different, so we clean and diagnose first, then quote.",
     covers: "Covers MacBook, iPhone and Android devices.",
     turnaround: "Assessed case by case after cleaning & diagnosis",

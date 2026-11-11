@@ -51,6 +51,8 @@ similar host that supports `/api` functions).
 | Colours / theme / layout styles | `src/index.css` |
 | Page sections (header, hero, booking, reviews…) | `src/components/` — one file per section |
 | Booking form → email address | `src/components/Booking.jsx` → `BOOKING_EMAIL_ENDPOINT` |
+| Trade-in base prices (Sell Your Device) | `src/data/tradeInData.js` → `TRADE_IN_MODELS` |
+| Sell form → email address | `src/components/SellYourDevice.jsx` → `SELL_EMAIL_ENDPOINT` |
 | Live reviews endpoint | `api/reviews.js` |
 | Photos | `public/images/` — replace a file, keep the same name |
 
@@ -73,9 +75,84 @@ no-prices rule, the 3-month warranty note, walk-in / mail-in / in-home
 options, and a **Book this repair** button that opens the booking form
 with that device preselected.
 
+## Black Friday Deals (homepage)
+
+The homepage carries a **Black Friday Deals** section (`id="deals"`,
+`src/components/BlackFridayDeals.jsx`) with exactly six offers: $20 OFF
+battery replacement, $20 OFF screen replacement, 20% OFF cases and screen
+protectors, $50 OFF phones over $1,000, FREE SCREEN PROTECTOR with phones
+over $300, and Freedom $40 · 71GB (roaming in 120+ destinations). No other
+offers or device prices are included.
+
+## Sell Your Device — trade-in calculator
+
+There is one extra page, reached by the hash route `#/sell-your-device`
+and linked from the top navigation and the footer:
+
+- `#/sell-your-device` — Sell Your Device / Trade-In Calculator
+
+It works like Mobify Mobiles' trade-in calculator: pick a **brand**
+(Apple, Samsung or Google), then a **model** (the model list changes with
+the brand and the model box stays disabled until a brand is chosen), then
+tick any of four **condition** issues — cracked screen / display lines
+(−50%), cracked back / heavy dents (−40%), battery health < 80% (−20%),
+liquid damage / no power (−80%). The deductions **add together** off the
+model's base price (they do not compound), the estimate updates instantly,
+and it never goes below $0. There is **no storage selector** — the price
+does not vary by capacity.
+
+All 85 base prices (36 Apple, 25 Samsung, 24 Google, in CAD) live in
+`src/data/tradeInData.js` → `TRADE_IN_MODELS`; they were taken from
+Mobify's calculator on Nov 11, 2026 with no condition boxes ticked. To
+change a price later, edit that one file.
+
+Clicking **Sell My Device** (enabled once a model is chosen) opens a short
+seller form — name, phone, email and optional notes — prefilled with the
+chosen brand, model, condition and estimated value. It sends to
+**Info1.macxpert@gmail.com** via FormSubmit
+(`https://formsubmit.co/ajax/Info1.macxpert@gmail.com`), the same pattern
+and address as the booking form, and shows a confirmation with a
+reference (`MX-S…`). The estimate is confirmed in store after inspection.
+
+## Buy a Phone — request a price/quote
+
+A second extra page, reached by the hash route `#/buy-a-phone` and
+linked from the top navigation and the footer:
+
+- `#/buy-a-phone` — Buy a Phone
+
+The customer picks a **brand** (Apple, Samsung or Google), then a
+**model** (the same model names as the trade-in list in
+`src/data/tradeInData.js` — model names only), then fills in name,
+phone, email and optional notes and submits. **No prices are shown on
+this page** — the owner calls the customer with the price/quote.
+The form sends to **Info1.macxpert@gmail.com** via FormSubmit
+(`https://formsubmit.co/ajax/Info1.macxpert@gmail.com`), the same
+pattern and address as the booking and sell forms, and shows a
+confirmation with a reference (`MX-B…`).
+
+## Scroll animations & mobile spacing
+
+Cards and section content use a reveal-on-scroll effect (`.reveal`,
+`.reveal-left`, `.reveal-right` in `src/index.css`, observed in
+`src/App.jsx`): elements slide/fade in as they enter the viewport,
+like themactech.ca. The effect is disabled when the visitor prefers
+reduced motion. On mobile (≤640px) the hero copy and the FAQ section
+get extra left/right padding so text never touches the screen edges.
+
+Six service images are distinct photos in `public/images/`:
+`imac.jpg` (iMac Repair), `motherboard.jpg` (Motherboard-Level
+Repair), `liquid-damage.jpg` (Liquid Damage Repair — water spilled
+on a laptop keyboard), `laptop-repair.jpg` (Laptop & Desktop
+Repair), `samsung.jpg` (Samsung / Android Repair) and
+`playstation.jpg` (Game Console Repair). Each is used on its
+homepage card and, where one exists, its service page.
+
 ## Pricing — no fixed prices
 
-There are **no pre-determined charges** anywhere on the site. Every device
+There are **no pre-determined repair charges** anywhere on the site. (The
+only prices on the site are the trade-in estimates on the Sell Your
+Device page — see above.) Every device
 is diagnosed free in store, and the exact price is confirmed with the
 customer before any work starts. The booking form shows a typical
 turnaround for the chosen issue, not a price.
@@ -102,9 +179,9 @@ Google reviews (fields "Google rating" and "Recent Google reviews") when
 the live reviews endpoint is working; if it is not, it includes just a
 link to the Google listing instead.
 
-**Activation — already done:** the first booking triggered an activation
-email to Info1.macxpert@gmail.com, which was confirmed. Bookings now go
-straight to the inbox.
+**Activation:** if this address has not been activated with FormSubmit
+before, the first submission triggers an activation email to
+Info1.macxpert@gmail.com — confirm it once, or no emails arrive.
 
 To send bookings to a different address later, change only the email in
 `BOOKING_EMAIL_ENDPOINT` in `src/components/Booking.jsx`. The form also
@@ -176,8 +253,9 @@ Refunds: **none** — exchange only on defective goods.
 - **Shop details are real**, from the Google Business listing: 1022 St
   Clair Ave W, Toronto, ON M6E 1A4, **+1 (647) 569-6360**. Shop email
   **Info1.macxpert@gmail.com** (provided by ALU; no email was listed on
-  Google). It is the display/contact email only — booking request emails
-  still go to Info1.macxpert@gmail.com (see "Booking emails" above).
+  Google). It is both the display/contact email and the address the
+  booking and sell-request forms send to via FormSubmit (see "Booking
+  emails" above).
 - Opening hours (from the Google listing): Mon 10:00 AM – 6:30 PM,
   Tue 10:00 AM – 6:30 PM, Wed 10:00 AM – 8:00 PM, Thu 9:30 AM – 7:00 PM,
   Fri 9:30 AM – 7:30 PM, Sat 10:00 AM – 7:00 PM, Sun 10:00 AM – 6:00 PM.

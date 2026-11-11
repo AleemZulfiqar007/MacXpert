@@ -28,13 +28,13 @@ export default function Policies() {
   return (
     <section id="policies" className="soft">
       <div className="wrap">
-        <div className="sec-head">
+        <div className="sec-head reveal">
           <p className="eyebrow center">Store Policies</p>
           <h2>Clear policies, no fine-print surprises</h2>
         </div>
         <div className="policy-grid">
           {POLICIES.map((p) => (
-            <article className="policy" id={p.id} key={p.id} style={{ scrollMarginTop: 90 }}>
+            <article className="policy reveal" id={p.id} key={p.id} style={{ scrollMarginTop: 90 }}>
               <h3><span className="ic">{ICONS[p.icon]}</span>{p.title}</h3>
               <Intro policy={p} />
               <ul>

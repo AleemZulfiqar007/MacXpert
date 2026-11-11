@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <div className="hero">
       <div className="wrap hero-grid">
-        <div className="hero-media">
+        <div className="hero-media reveal reveal-left">
           <img className="main" src="/images/hero.jpg" alt="Technician repairing smartphones at a clean workbench" />
           <div className="badge-float bf1">
             <span className="ic" style={{ background: 'var(--green-soft)', color: 'var(--green)' }}><Check /></span>
@@ -18,7 +18,7 @@ export default function Hero() {
             <span><b>3-month warranty</b><span>On parts &amp; workmanship</span></span>
           </div>
         </div>
-        <div className="hero-copy">
+        <div className="hero-copy reveal reveal-right">
           <p className="eyebrow">Skilled Professionals</p>
           <h1>Smart Repairs.<br />Honest Service.</h1>
           <p>Whether it&rsquo;s your iPhone, MacBook, smartphone or gaming console — MacXpert Toronto&rsquo;s experts diagnose it in store, confirm the exact price with you before any work starts, and repair it with genuine or OEM-grade parts that last.</p>

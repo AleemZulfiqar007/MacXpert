@@ -21,7 +21,7 @@ const PRICING_STEPS_LEFT = [
 // Form panel — the preview's shorter "How our pricing works" wording.
 const PRICING_STEPS_FORM = [
   ['Diagnostics', 'Every repair starts with a in-store diagnosis.'],
-  ['We confirm the price', 'The price is confirmed with you after the diagnostics, before any work starts. There are no pre-determined charges.'],
+  ['We confirm the price', 'The price is confirmed with you after the free diagnostics, before any work starts. There are no pre-determined charges.'],
   ['You approve first', 'No work starts until you approve the price.'],
   ['Pay in store', 'You pay in store when the repair is done — nothing is charged online. Every repair carries a 3-month warranty on parts and workmanship (excludes liquid/water damage, LCD cracks and pressure damage).'],
 ]
@@ -161,20 +161,20 @@ export default function Booking({ device, issue, onDeviceChange, onIssueChange, 
   return (
     <section id="booking">
       <div className="wrap">
-        <div className="sec-head">
+        <div className="sec-head reveal">
           <p className="eyebrow center">Book a Repair</p>
           <h2>Book in under a minute</h2>
           <p>Tell us what device you have and what&rsquo;s wrong with it. We&rsquo;ll confirm your booking by phone or email — walk-ins are always welcome too.</p>
         </div>
         <div className="book-grid">
-          <div className="panel">
+          <div className="panel reveal reveal-left">
             <h3>How our pricing works</h3>
             <p className="sub">We don&rsquo;t publish pre-set prices — every fault is different. Here&rsquo;s exactly how your charge is decided:</p>
             <StepsList steps={PRICING_STEPS_LEFT} />
             <p className="note" style={{ marginTop: 18 }}>Prefer to talk first? Call us at <a href={SHOP.phoneHref} style={{ color: 'var(--brand-bright)', fontWeight: 700, textDecoration: 'none' }}>{SHOP.phoneDisplay}</a> or email <a href={`mailto:${SHOP.email}`} style={{ color: 'var(--brand-bright)', fontWeight: 700, textDecoration: 'none' }}>{SHOP.email}</a>.</p>
           </div>
 
-          <div className="panel">
+          <div className="panel reveal reveal-right">
             {!booking ? (
               <div>
                 <h3>Book your repair</h3>

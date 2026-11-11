@@ -21,13 +21,13 @@ export default function Reviews() {
   return (
     <section id="reviews" className="soft">
       <div className="wrap">
-        <div className="sec-head">
+        <div className="sec-head reveal">
           <p className="eyebrow center">Customer Reviews</p>
           <h2>Customer reviews on Google</h2>
           <p>Our reviews are on our Google Business listing — follow the link below to read them there.</p>
         </div>
 
-        <div className="rev-summary">
+        <div className="rev-summary reveal">
           <div style={{ textAlign: 'center' }}>
             <div style={{ fontSize: '1.55rem', fontWeight: 900, lineHeight: 1.25 }}>Customer reviews<br />on Google</div>
             <p style={{ margin: '8px 0 0', color: 'var(--ink-3)', fontSize: '.88rem' }}>Reviews load from our Google listing</p>
@@ -45,7 +45,7 @@ export default function Reviews() {
         {liveReviews ? (
           <div className="rev-grid" aria-label="Google reviews">
             {liveReviews.map((r, i) => (
-              <article className="rev" key={`${r.author}-${i}`}>
+              <article className="rev reveal" key={`${r.author}-${i}`}>
                 <div className="rev-top"><span className="avatar">{initials(r.author)}</span><div><b>{r.author}</b><span>Google review</span></div></div>
                 <div className="stars" aria-label={`${r.stars} out of 5 stars`}>{starsStr(r.stars)}</div>
                 <p>{r.text}</p>

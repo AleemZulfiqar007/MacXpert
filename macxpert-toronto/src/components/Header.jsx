@@ -38,6 +38,8 @@ export default function Header() {
                 <a className="dd-all" href="#services">All services →</a>
               </div>
             </div>
+            <a href="#/sell-your-device">Sell Your Device</a>
+            <a href="#/buy-a-phone">Buy a Phone</a>
             <a href="#why">Why Us</a>
             <a href="#reviews">Reviews</a>
             <a href="#policies">Policies</a>

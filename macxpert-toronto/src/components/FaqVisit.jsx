@@ -22,20 +22,20 @@ export default function FaqVisit() {
       <div className="wrap">
         <div className="two-col">
           <div>
-            <div className="sec-head left">
+            <div className="sec-head left reveal">
               <p className="eyebrow">Good to Know</p>
               <h2>Questions, answered</h2>
             </div>
             <div>
               {FAQS.map((f, i) => (
-                <div className={`faq-item${open === i ? ' open' : ''}`} key={f.q}>
+                <div className={`faq-item reveal${open === i ? ' open' : ''}`} key={f.q}>
                   <button className="faq-q" type="button" onClick={() => setOpen(open === i ? -1 : i)}>{f.q}<span aria-hidden="true">{open === i ? '－' : '＋'}</span></button>
                   {open === i && <div className="faq-a" style={{ display: 'block' }}><Answer f={f} /></div>}
                 </div>
               ))}
             </div>
           </div>
-          <div className="panel">
+          <div className="panel reveal reveal-right">
             <h3>Visit the store</h3>
             <p className="sub">On St Clair Ave W in Toronto. Street parking on St Clair &amp; side streets.</p>
             <div className="info-list">
