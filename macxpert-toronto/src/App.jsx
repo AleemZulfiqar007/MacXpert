@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import Header from './components/Header.jsx'
 import Hero from './components/Hero.jsx'
 import DeviceStrip from './components/DeviceStrip.jsx'
+import SellPhonesBanner from './components/SellPhonesBanner.jsx'
 import Services from './components/Services.jsx'
 import ServicePage from './components/ServicePage.jsx'
 import SellYourDevice from './components/SellYourDevice.jsx'
@@ -171,6 +172,7 @@ export default function App() {
         <main id="top">
           <Hero />
           <DeviceStrip device={device} onSelect={changeDevice} />
+          <SellPhonesBanner />
           <BlackFridayDeals />
           <Services onBookService={bookService} onBookDevice={bookDevice} />
           <WhyUs />
