@@ -40,7 +40,7 @@ export default function FaqVisit() {
             <p className="sub">On St Clair Ave W in Toronto. Street parking is available on St Clair and nearby side streets.</p>
             <div className="info-list">
               <div><span className="ic"><Pin /></span><div><b>{SHOP.address}</b><span><a href={SHOP.mapsUrl} target="_blank" rel="noopener" style={{ color: 'var(--brand-bright)', fontWeight: 700, textDecoration: 'none' }}>Find us on Google Maps →</a></span></div></div>
-              <div><span className="ic"><Phone /></span><div><b>{SHOP.phoneDisplay}</b><span>Call or text — fastest for questions</span></div></div>
+              <div><span className="ic"><Phone /></span><div><b>{SHOP.phoneDisplay}</b><span>Call or text for questions</span></div></div>
               <div><span className="ic"><Mail /></span><div><b>{SHOP.email}</b><span>Replies within one business day</span></div></div>
             </div>
             <h4 style={{ margin: '22px 0 6px' }}>Opening hours</h4>

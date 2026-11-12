@@ -164,12 +164,12 @@ export default function Booking({ device, issue, onDeviceChange, onIssueChange, 
         <div className="sec-head reveal">
           <p className="eyebrow center">Book a Repair</p>
           <h2>Book in under a minute</h2>
-          <p>Tell us what device you have and what&rsquo;s wrong with it. We&rsquo;ll confirm your booking by phone or email — walk-ins are always welcome too.</p>
+          <p>Tell us what device you have and what&rsquo;s wrong with it. We&rsquo;ll confirm your booking by phone or email. Walk-ins are always welcome too.</p>
         </div>
         <div className="book-grid">
           <div className="panel reveal reveal-left">
             <h3>How our pricing works</h3>
-            <p className="sub">We don&rsquo;t publish pre-set prices — every fault is different. Here&rsquo;s exactly how your charge is decided:</p>
+            <p className="sub">We don&rsquo;t publish pre-set prices. Every fault is different. Here&rsquo;s exactly how your charge is decided:</p>
             <StepsList steps={PRICING_STEPS_LEFT} />
             <p className="note" style={{ marginTop: 18 }}>Prefer to talk first? Call us at <a href={SHOP.phoneHref} style={{ color: 'var(--brand-bright)', fontWeight: 700, textDecoration: 'none' }}>{SHOP.phoneDisplay}</a> or email <a href={`mailto:${SHOP.email}`} style={{ color: 'var(--brand-bright)', fontWeight: 700, textDecoration: 'none' }}>{SHOP.email}</a>.</p>
           </div>
@@ -190,7 +190,7 @@ export default function Booking({ device, issue, onDeviceChange, onIssueChange, 
                   </div>
                   <p className="ta-note">{ta.note}</p>
                   <ul>
-                    <li><CheckIcon />No pre-determined charges — your price is confirmed with you before any work begins</li>
+                    <li><CheckIcon />No pre-determined charges. Your price is confirmed with you before any work begins</li>
                     <li><CheckIcon />Diagnostics on every device</li>
                     <li><CheckIcon />3-month warranty on parts &amp; workmanship</li>
                   </ul>
@@ -233,7 +233,7 @@ export default function Booking({ device, issue, onDeviceChange, onIssueChange, 
                       <label className="radio-pill" key={m.value}><input type="radio" name="method" value={m.value} checked={form.method === m.value} onChange={set('method')} />{m.label}</label>
                     ))}
                   </div>
-                  <label className="f"><span>Tell us what happened</span><textarea name="notes" placeholder="e.g. Dropped it this morning — screen is cracked and touch works in some spots." value={form.notes} onChange={set('notes')}></textarea></label>
+                  <label className="f"><span>Tell us what happened</span><textarea name="notes" placeholder="e.g. Dropped it this morning. Screen is cracked and touch works in some spots." value={form.notes} onChange={set('notes')}></textarea></label>
                   <button className="btn btn-primary btn-block" type="submit">Confirm Booking Request →</button>
                   <p className="note" style={{ marginTop: 10, textAlign: 'center' }}>This sends a booking request. We&rsquo;ll call or email to confirm. Your price is confirmed after in-store diagnosis. Nothing is charged online.</p>
                 </form>
