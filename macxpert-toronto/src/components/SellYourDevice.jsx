@@ -8,7 +8,7 @@ const SELL_EMAIL_ENDPOINT = 'https://formsubmit.co/ajax/Info1.macxpert@gmail.com
 
 const HOW_STEPS = [
   ['Get your quote', 'Pick your brand and model in the calculator and tick any condition issues that apply. Your estimated value updates right away.'],
-  ['Bring your device in', `Visit us at ${SHOP.address} — no appointment needed, or call us first if you prefer.`],
+  ['Bring your device in', `Visit us at ${SHOP.address}. No appointment needed, or call us first if you prefer.`],
   ['We check it in store', 'We inspect the device and confirm the final value with you. If the condition matches your answers, the estimate stands.'],
   ['Complete the sale in store', 'If you accept the confirmed value, we complete the sale in store. Nothing is paid or charged online.'],
 ]
@@ -57,7 +57,7 @@ export default function SellYourDevice({ showToast }) {
   const value = selected ? tradeInValue(selected.price, conditions) : 0
   const conditionText = conditions.length
     ? TRADE_IN_CONDITIONS.filter((c) => conditions.includes(c.id)).map((c) => c.label).join('; ')
-    : 'No issues ticked — device in good working condition'
+    : 'No issues ticked. Device in good working condition'
 
   function changeBrand(e) {
     setBrand(e.target.value)
@@ -78,7 +78,7 @@ export default function SellYourDevice({ showToast }) {
     e.preventDefault()
     const fail = (m) => { setErr(m); document.getElementById('sellFormErr')?.scrollIntoView({ behavior: 'smooth', block: 'center' }) }
     if (form.name.trim().length < 2) return fail('Please add your name so we know who the device belongs to.')
-    if (form.phone.replace(/\D/g, '').length < 10) return fail('Please add a valid phone number — we confirm sell requests by phone.')
+    if (form.phone.replace(/\D/g, '').length < 10) return fail('Please add a valid phone number. We confirm sell requests by phone.')
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) return fail('Please add a valid email address.')
     setErr('')
     const ref = `MX-S${Math.floor(1000 + Math.random() * 9000)}`
@@ -127,21 +127,21 @@ export default function SellYourDevice({ showToast }) {
             </ul>
             <p className="note" style={{ marginTop: 18 }}>Before you come in: back up your data, sign out of your iCloud, Samsung or Google account, and factory-reset the device if you can.</p>
             <p className="note" style={{ marginTop: 10 }}>Prefer to talk first? Call us at <a href={SHOP.phoneHref} style={{ color: 'var(--brand-bright)', fontWeight: 700, textDecoration: 'none' }}>{SHOP.phoneDisplay}</a> or email <a href={`mailto:${SHOP.email}`} style={{ color: 'var(--brand-bright)', fontWeight: 700, textDecoration: 'none' }}>{SHOP.email}</a>.</p>
-            <p className="note" style={{ marginTop: 10 }}>Visit us at {SHOP.address} — open 7 days a week.</p>
+            <p className="note" style={{ marginTop: 10 }}>Visit us at {SHOP.address}. Open 7 days a week.</p>
           </div>
 
           <div className="panel reveal reveal-right">
             <h3>Trade-In Calculator</h3>
             <p className="sub">Get a real-time quote for your device</p>
 
-            <label className="f"><span>Step 1 — Brand</span>
+            <label className="f"><span>Step 1: Brand</span>
               <select id="sydBrand" aria-label="Select Brand" value={brand} onChange={changeBrand}>
                 <option value="">Select Brand</option>
                 {TRADE_IN_BRANDS.map((b) => <option key={b} value={b}>{b}</option>)}
               </select>
             </label>
 
-            <label className="f"><span>Step 2 — Model</span>
+            <label className="f"><span>Step 2: Model</span>
               <select id="sydModel" aria-label="Select Model" value={model} onChange={changeModel} disabled={!brand}>
                 <option value="">Select Model</option>
                 {models.map((m) => <option key={m.name} value={m.name}>{m.name}</option>)}
@@ -150,7 +150,7 @@ export default function SellYourDevice({ showToast }) {
             <p className="note" style={{ margin: '-6px 0 14px' }}>Good news: the estimate is the same whatever storage size your model has.</p>
 
             <fieldset className="syd-conditions">
-              <legend>Step 3 — Device Condition</legend>
+              <legend>Step 3: Device Condition</legend>
               <p className="note" style={{ margin: '0 0 10px' }}>Tick every issue that applies — your estimate updates right away. Deductions add together.</p>
               {TRADE_IN_CONDITIONS.map((c) => (
                 <label className="syd-check" key={c.id}>
@@ -198,7 +198,7 @@ export default function SellYourDevice({ showToast }) {
                   <label className="f"><span>Email *</span><input type="email" name="email" autoComplete="email" placeholder="you@email.com" value={form.email} onChange={set('email')} /></label>
                   <label className="f"><span>Notes (optional)</span><textarea name="notes" placeholder="Anything we should know about the device…" value={form.notes} onChange={set('notes')}></textarea></label>
                   <button className="btn btn-primary btn-block" type="submit">Send my sell request →</button>
-                  <p className="note" style={{ marginTop: 10, textAlign: 'center' }}>This sends your sell request to the shop — we&rsquo;ll call or email to confirm. Nothing is paid or charged online.</p>
+                  <p className="note" style={{ marginTop: 10, textAlign: 'center' }}>This sends your sell request to the shop. We&rsquo;ll call or email to confirm. Nothing is paid or charged online.</p>
                 </form>
               </div>
             )}

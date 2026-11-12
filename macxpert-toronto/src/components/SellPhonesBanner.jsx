@@ -8,7 +8,7 @@ export default function SellPhonesBanner() {
         <div className="sp-cta reveal-lift">
           <div>
             <h2>We repair and sell phones</h2>
-            <p>iPhone, Samsung and Google Pixel — plus MacBooks, iPads, laptops and more. Pick the phone you want and we&rsquo;ll call you with a price and quote. No fixed prices online.</p>
+            <p>iPhone, Samsung and Google Pixel. Plus MacBooks, iPads, laptops and more. Pick the phone you want and we&rsquo;ll call you with a price and quote. No fixed prices online.</p>
           </div>
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
             <a className="btn btn-primary" href="#/buy-a-phone">Buy a Phone →</a>

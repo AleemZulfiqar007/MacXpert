@@ -8,9 +8,9 @@ import { TRADE_IN_BRANDS, TRADE_IN_MODELS } from '../data/tradeInData.js'
 const BUY_EMAIL_ENDPOINT = 'https://formsubmit.co/ajax/Info1.macxpert@gmail.com'
 
 const HOW_STEPS = [
-  ['Pick the phone you want', 'Choose the brand and model below — Apple iPhone, Samsung Galaxy and Google Pixel models we handle.'],
+  ['Pick the phone you want', 'Choose the brand and model below. Apple iPhone, Samsung Galaxy and Google Pixel models we handle.'],
   ['Send your request', 'Fill in your name, phone and email and submit the form. It takes under a minute.'],
-  ['We call you with the price', 'The owner will call you with the price/quote for that phone — no prices are listed online, and there is no obligation.'],
+  ['We call you with the price', 'The owner will call you with the price/quote for that phone. No prices are listed online, and there is no obligation.'],
   ['Pick it up in store', `If you are happy with the quote, visit us at ${SHOP.address} to complete your purchase in store.`],
 ]
 
@@ -63,7 +63,7 @@ export default function BuyAPhone({ showToast }) {
     if (!brand) return fail('Please choose a brand first.')
     if (!model) return fail('Please choose the model you want to buy.')
     if (form.name.trim().length < 2) return fail('Please add your name so we know who to ask for when we call.')
-    if (form.phone.replace(/\D/g, '').length < 10) return fail('Please add a valid phone number — we call you with the price/quote.')
+    if (form.phone.replace(/\D/g, '').length < 10) return fail('Please add a valid phone number. We call you with the price/quote.')
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) return fail('Please add a valid email address.')
     setErr('')
     const ref = `MX-B${Math.floor(1000 + Math.random() * 9000)}`

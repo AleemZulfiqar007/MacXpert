@@ -24,7 +24,7 @@ export default function Reviews() {
         <div className="sec-head reveal-lift">
           <p className="eyebrow center">Customer Reviews</p>
           <h2>Customer reviews on Google</h2>
-          <p>Our reviews are on our Google Business listing — follow the link below to read them there.</p>
+          <p>Our reviews are on our Google Business listing. Follow the link below to read them there.</p>
         </div>
 
         <div className="rev-summary reveal">
@@ -34,7 +34,7 @@ export default function Reviews() {
           </div>
           <div>
             <h3 style={{ fontSize: '1.15rem', marginBottom: 6 }}>See what our customers say</h3>
-            <p style={{ margin: 0, color: 'var(--ink-2)', fontSize: '.95rem' }}>From cracked iPhone screens to board-level MacBook repairs, St Clair West trusts MacXpert with its devices. Our reviews load from our Google listing — tap below to read them on Google, or share your own experience there.</p>
+            <p style={{ margin: 0, color: 'var(--ink-2)', fontSize: '.95rem' }}>From cracked iPhone screens to board-level MacBook repairs, St Clair West trusts MacXpert with its devices. Our reviews load from our Google listing. Tap below to read them on Google, or share your own experience there.</p>
             <div className="g-actions">
               <a className="btn btn-primary" href={listingUrl} target="_blank" rel="noopener">Read our Google reviews →</a>
               <a className="btn btn-outline" href={listingUrl} target="_blank" rel="noopener">Review us on Google</a>
@@ -56,7 +56,7 @@ export default function Reviews() {
         ) : (
           <div className="rev-grid" aria-label="Google reviews">
             <div className="rev-loading">
-              <p>Our customer reviews are on Google — they load from our Google listing when you open it.</p>
+              <p>Our customer reviews are on Google. They load from our Google listing when you open it.</p>
               <a className="btn btn-primary btn-sm" href={listingUrl} target="_blank" rel="noopener">Read reviews on Google →</a>
             </div>
           </div>

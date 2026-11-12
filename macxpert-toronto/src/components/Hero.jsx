@@ -21,7 +21,7 @@ export default function Hero() {
         <div className="hero-copy reveal reveal-right">
           <p className="eyebrow">Skilled Professionals</p>
           <h1>Smart Repairs.<br />Honest Service.</h1>
-          <p>Whether it&rsquo;s your iPhone, MacBook, smartphone or gaming console — MacXpert Toronto&rsquo;s experts diagnose it in store, confirm the exact price with you before any work starts, and repair it with genuine or OEM-grade parts that last. We also sell iPhone, Samsung and Pixel phones — pick your model and we&rsquo;ll call you with a quote.</p>
+          <p>Whether it&rsquo;s your iPhone, MacBook, smartphone, or gaming console, MacXpert Toronto&rsquo;s experts diagnose it in store, confirm the exact price with you before any work starts, and repair it with genuine or OEM-grade parts that last. We also sell iPhone, Samsung, and Pixel phones. Pick your model, and we&rsquo;ll call you with a quote.</p>
           <div className="hero-actions">
             <a className="btn btn-primary" href="#booking">Book a Repair →</a>
             <a className="btn btn-bright" href="#/buy-a-phone">Buy a Phone →</a>

@@ -15,7 +15,7 @@ const PRICING_STEPS_LEFT = [
   ['Bring it in, mail it, or book a visit', 'Walk into the store, send your device by mail, or have a technician come to you.'],
   ['Diagnosis at the store', 'Our technicians test your device and find the real fault.'],
   ['We confirm the price with you', "You're told exactly how much the repair will cost before any work begins. No approval, no repair, no charge."],
-  ["Pay when it's fixed", 'You pay in store only once the repair is done and tested — covered by a 3-month warranty.'],
+  ["Pay when it's fixed", 'You pay in store only once the repair is done and tested, covered by a 3-month warranty.'],
 ]
 
 // Form panel — the preview's shorter "How our pricing works" wording.
@@ -23,7 +23,7 @@ const PRICING_STEPS_FORM = [
   ['Diagnostics', 'Every repair starts with a in-store diagnosis.'],
   ['We confirm the price', 'The price is confirmed with you after the free diagnostics, before any work starts. There are no pre-determined charges.'],
   ['You approve first', 'No work starts until you approve the price.'],
-  ['Pay in store', 'You pay in store when the repair is done — nothing is charged online. Every repair carries a 3-month warranty on parts and workmanship (excludes liquid/water damage, LCD cracks and pressure damage).'],
+  ['Pay in store', 'You pay in store when the repair is done. Nothing is charged online. Every repair carries a 3-month warranty on parts and workmanship (excludes liquid/water damage, LCD cracks and pressure damage).'],
 ]
 
 const CheckIcon = () => (
@@ -63,7 +63,7 @@ const BOOKING_EMAIL_ENDPOINT = 'https://formsubmit.co/ajax/Info1.macxpert@gmail.
 
 function sendBookingEmail(booking, live) {
   const body = {
-    _subject: `New repair booking ${booking.ref} — ${booking.device} (${booking.issue}) — MacXpert Toronto`,
+    _subject: `New repair booking ${booking.ref} — ${booking.device} (${booking.issue}). MacXpert Toronto`,
     _template: 'table',
     _captcha: 'false',
     'Booking reference': booking.ref,
@@ -133,10 +133,10 @@ export default function Booking({ device, issue, onDeviceChange, onIssueChange, 
     e.preventDefault()
     const fail = (m) => { setErr(m); document.getElementById('formErr')?.scrollIntoView({ behavior: 'smooth', block: 'center' }) }
     if (form.name.trim().length < 2) return fail('Please add your name so we know who the device belongs to.')
-    if (form.phone.replace(/\D/g, '').length < 10) return fail('Please add a valid phone number — we confirm bookings by phone.')
+    if (form.phone.replace(/\D/g, '').length < 10) return fail('Please add a valid phone number. We confirm bookings by phone.')
     if (!form.date) return fail('Please pick a preferred date.')
-    if (device === 'Other' && form.customDevice.trim().length < 2) return fail('Please type in your device — you selected “Other” for the device.')
-    if (effIssue === 'Other' && form.customIssue.trim().length < 3) return fail('Please describe your issue — you selected “Other” for the issue.')
+    if (device === 'Other' && form.customDevice.trim().length < 2) return fail('Please type in your device, You selected “Other” for the device.')
+    if (effIssue === 'Other' && form.customIssue.trim().length < 3) return fail('Please describe your issue. You selected “Other” for the issue.')
     setErr('')
     const ref = `MX-${Math.floor(1000 + Math.random() * 9000)}-${form.date.slice(5).replace('-', '')}`
     const newBooking = {
@@ -235,7 +235,7 @@ export default function Booking({ device, issue, onDeviceChange, onIssueChange, 
                   </div>
                   <label className="f"><span>Tell us what happened</span><textarea name="notes" placeholder="e.g. Dropped it this morning — screen is cracked and touch works in some spots." value={form.notes} onChange={set('notes')}></textarea></label>
                   <button className="btn btn-primary btn-block" type="submit">Confirm Booking Request →</button>
-                  <p className="note" style={{ marginTop: 10, textAlign: 'center' }}>This sends a booking request — we&rsquo;ll call or email to confirm. Your price is confirmed after in-store diagnosis. Nothing is charged online.</p>
+                  <p className="note" style={{ marginTop: 10, textAlign: 'center' }}>This sends a booking request. We&rsquo;ll call or email to confirm. Your price is confirmed after in-store diagnosis. Nothing is charged online.</p>
                 </form>
               </div>
             ) : (

@@ -12,7 +12,7 @@ export default function Services({ onBookService, onBookDevice }) {
         <div className="sec-head reveal">
           <p className="eyebrow center">Issues We Repair</p>
           <h2>Your one-stop solution for every gadget repair</h2>
-          <p>Diagnostics on everything. We confirm the exact price with you in store after diagnosis — before any repair begins — so there are never surprises.</p>
+          <p>Every repair starts with diagnostics. We confirm the exact price with you in store after diagnosis, before any repair begins, so there are no surprises.</p>
         </div>
         <div className="svc-grid">
           {SERVICES.map((s) => (
