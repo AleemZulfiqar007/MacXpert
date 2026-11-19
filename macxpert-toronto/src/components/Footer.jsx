@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="wrap">
         <div className="cols">
           <div>
-            <img src="/images/logo.png" alt="MacXpert Toronto" style={{ height: 44, width: 'auto', display: 'block' }} />
+            <img src="/images/footerlogo.png" alt="MacXpert Toronto" style={{ height: 44, width: 'auto', display: 'block' }} />
             <p style={{ margin: '14px 0 0', maxWidth: '32ch' }}>Toronto&rsquo;s repair centre for iPhones, Macs, PCs, tablets, consoles, and more. Diagnostics, honest in-store pricing, and a 60-day warranty.</p>
           </div>
           <div><h4>Services</h4>{orderedServicePages().map((p) => <a key={p.slug} href={`#/service/${p.slug}`}>{p.title}</a>)}</div>
