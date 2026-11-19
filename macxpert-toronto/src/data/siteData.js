@@ -8,7 +8,7 @@ export const SHOP = {
   address: "1022 St Clair Ave W, Toronto, ON M6E 1A4",
   phoneDisplay: "+1 (647) 569-6360",
   phoneHref: "tel:+16475696360",
-  email: "Info1.macxpert@gmail.com",
+  email: "hello@macxperts.ca",
   mapsUrl: "https://maps.app.goo.gl/ZVXv3ArpgyCwYCdQ6?g_st=ic",
 };
 export const GOOGLE_LISTING_URL = "https://maps.app.goo.gl/ZVXv3ArpgyCwYCdQ6?g_st=ic";
@@ -75,7 +75,7 @@ export const FAQS = [
   { q: "How long does a typical repair take?", a: "Most basic repairs, like screen or battery replacements, are completed within a few hours. Complex issues such as motherboard or liquid damage may take 2–5 working days depending on part availability. We'll confirm your timeline after the diagnosis." },
   { q: "Do you only take walk-ins, or also mail-in and in-home repairs?", a: "All three. Walk into our St Clair Ave W store any time during opening hours, mail your device in from anywhere in Canada, or book an in-home visit. Ideal for TVs and desktop setups. Choose your option when you book." },
   { q: "Is my data safe during a repair?", a: "We take your data privacy very seriously and never access personal files, photos or messages. As a safety measure, we always recommend backing up your data before submitting your device for repair. We can help you make a backup in store." },
-  { q: "What warranty do I get?", a: "All repairs come with a 3-month warranty covering parts and workmanship. The warranty does not cover liquid or water damage, LCD cracks, or pressure damage. See our warranty policy for full details.", linkText: "warranty policy", linkHref: "#warranty" },
+  { q: "What warranty do I get?", a: "All repairs come with a 60-day limited shop warranty covering parts and workmanship. If the same fault returns within 60 days, we will repair it again at no extra charge. See our terms & conditions for full details.", linkText: "terms & conditions", linkHref: "#warranty" },
   { q: "What if I change my mind or the goods are defective?", a: "We operate a no-refund policy. Defective goods are exchanged — see our refund & exchange policy. And remember: if you don't approve the in-store quote, there's no repair and no charge.", linkText: "refund & exchange policy", linkHref: "#refunds" }
 ];
 
@@ -101,7 +101,7 @@ export const POLICIES = [
       ["How we use it:", "only to manage your booking, carry out your repair, and contact you about its status. We never sell your information."],
       ["Your device data:", "our technicians do not access, copy or share your personal files, photos or messages during a repair."],
       ["Sharing:", "we share information only with service providers needed to complete your repair (for example, mail carriers for mail-in repairs), or when required by law."],
-      ["Your rights:", "contact us at Info1.macxpert@gmail.com to see, correct or delete the personal information we hold about you."]
+      ["Your rights:", "contact us at hello@macxperts.ca to see, correct or delete the personal information we hold about you."]
     ]
   },
   {
@@ -110,19 +110,99 @@ export const POLICIES = [
     bullets: [
       ["Defective goods:", "if an item you bought from us is defective, we will exchange it for the same or an equivalent item."],
       ["Proof of purchase:", "please bring your receipt and the item in its original condition for any exchange."],
-      ["Repairs:", "issues with a completed repair are handled under our 3-month warranty on parts and workmanship rather than by refund."],
+      ["Repairs:", "issues with a completed repair are handled under our 60-day limited shop warranty on parts and workmanship rather than by refund."],
       ["Change of mind:", "Every price is approved by you before work begins, change-of-mind returns are not accepted."]
     ]
   },
   {
-    id: "warranty", title: "Warranty Policy", icon: "medal",
-    intro: "Every repair at MacXpert Toronto is covered by a 3-month warranty on parts and workmanship. If the same fault returns within 3 months, we will put it right.", introBold: ["3-month warranty on parts and workmanship"],
-    bullets: [
-      ["Covered:", "defects in the parts we installed and in our workmanship, for the specific repair carried out."],
-      ["Not covered:", "liquid or water damage."],
-      ["Not covered:", "LCD cracks or any cracked glass/display after repair."],
-      ["Not covered:", "pressure damage, accidental or physical damage, and faults unrelated to the original repair."],
-      ["To claim:", "bring your device and receipt to the store within the warranty period and we'll assess it."]
+    id: "warranty", title: "Terms & Conditions", icon: "medal",
+    sections: [
+      {
+        heading: "Repair Risks",
+        blocks: [
+          "Electronic repairs are unpredictable. Your device may be beyond repair or may be permanently damaged during repair and rendered unusable. Circuit board components deteriorate over time and can fail without warning, especially in liquid-damaged devices, where components can short-circuit, oxidize, corrode, or rust.",
+          "Repairs on devices with glued-on screens, such as iPads, involve prying the screen away to access internal components. Screens are delicate and can crack or break during this process. Our technicians are highly experienced, and the risk of breakage is minimal, but glass can still break.",
+          "Touch ID or Face ID on Apple devices may stop working during repair. This is uncommon, but it can happen depending on the condition of the device."
+        ]
+      },
+      {
+        heading: "Estimates",
+        blocks: [
+          "Some problems only become apparent after work begins, so the initial estimate may change. If our technicians need to update your estimate, we will explain what has changed and why. We must have your approval before proceeding with any changes to the work or price.",
+          "Your initial estimate remains valid for the services it originally covered. If we discover that the original service is unnecessary or unlikely to resolve the issue, we will let you know."
+        ]
+      },
+      {
+        heading: "Limited Shop Warranty",
+        blocks: [
+          "MacXperts offers a 60-day limited shop warranty on repairs, subject to the exclusions below. If the issue identified and repaired on your original work order returns within 60 days, we will perform the service again at no extra charge. Parts supplied by MacXperts are also covered for 60 days from the date of service.",
+          "The warranty applies to the original repair. It does not cover unrelated issues that develop during the warranty period."
+        ]
+      },
+      {
+        heading: "Warranty Exclusions",
+        blocks: [
+          "The MacXperts Limited Shop Warranty excludes the following:",
+          [
+            "Services performed using parts purchased elsewhere.",
+            "Software services, including virus removal and operating system installation.",
+            "New symptoms or issues unrelated to the original service.",
+            "Recurrence of the original issue caused by user error or negligence, including drops, crushing, exposure to extreme temperatures, spills, liquid immersion, improper electrical grounding, damaged electrical connections, or harmful software such as viruses, malware, or spyware."
+          ],
+          "Installing new hardware or modifying existing hardware during the 60-day warranty period voids the MacXperts Limited Shop Warranty. Physical tampering or damage during the warranty period also voids the warranty. Examples include cracked screens, dents in the casing, internal damage that was absent at the time of repair, attempts to open or modify the device, use of non-original charging cables, or any other accidental or intentional action that could cause the repair to fail.",
+          "Some services performed by MacXperts may void your manufacturer's warranty. By accepting service, you acknowledge this possibility and agree that MacXperts is not responsible for the loss of manufacturer warranty coverage."
+        ]
+      },
+      {
+        heading: "Warranty Repairs",
+        blocks: [
+          "If the issue on your original work order returns within 60 days of receiving your device, MacXperts will perform the repair again at no extra charge, subject to the warranty exclusions above. If the issue is unrelated, we will explain the cost and obtain your approval before proceeding.",
+          "MacXperts must have an opportunity to inspect the device, verify the claim, and attempt the repair again before issuing a refund. If we are unable to fix the device, we will issue a refund minus the applicable repair attempt fee and return shipping costs. The Repair Attempt Fee section below explains when that fee applies.",
+          "For a qualifying mail-in warranty repair, you are responsible for shipping the device to MacXperts. MacXperts will cover the cost of shipping the repaired device back to you."
+        ]
+      },
+      {
+        heading: "Estimate and Repair Time",
+        blocks: [
+          "We aim to service devices as soon as possible, in the order we receive them. Many repairs are completed within 1 to 48 hours. Factors outside our control may affect the time required. Any service times listed on our website or in promotional materials are estimates based on previous repairs. We cannot guarantee a completion time."
+        ]
+      },
+      {
+        heading: "Replacement Parts",
+        blocks: [
+          "Before ordering a replacement part, MacXperts will explain which part is needed, why it is necessary, how much it costs, and when we expect it to arrive. Shipping times are outside our control, so arrival dates are estimates.",
+          "If you prefer to keep your device until the part arrives, we require a non-refundable deposit of 50% of the cost of the ordered parts.",
+          "MacXperts generally uses parts we purchase because we cannot verify the condition, fit, or compatibility of parts purchased elsewhere. If we agree to install a part you provide, the MacXperts Limited Shop Warranty does not cover that part or the work performed using it. Any warranty on the part must come from its manufacturer. By supplying your own part, you accept responsibility for device damage caused by a faulty or incompatible part."
+        ]
+      },
+      {
+        heading: "Repair Attempt Fee",
+        blocks: [
+          "MacXperts charges a repair attempt fee of $40 to $100 for most devices requiring motherboard repair or data recovery, and for most devices that have undergone a previous repair attempt. The fee covers technician time when a repair is unsuccessful, data cannot be recovered, or the device was previously worked on before it arrived at MacXperts."
+        ]
+      },
+      {
+        heading: "Shipping Policy",
+        blocks: [
+          "MacXperts follows the shipping instructions you provide on your mail-in form. If you do not request shipping insurance, you assume responsibility for damage during shipping. If you provide your own prepaid shipping label, you must add any insurance you want when purchasing the label. MacXperts cannot add insurance to a prepaid label.",
+          "Devices shipped outside their original packaging are more susceptible to damage. If you send your device in a generic box, MacXperts will return it in a generic box at your own risk."
+        ]
+      },
+      {
+        heading: "Data",
+        blocks: [
+          "Please back up important files before dropping off or mailing in your device. MacXperts takes precautions to protect your data, but we cannot guarantee its safety or assume liability for data lost during service.",
+          "If we know that a procedure may result in data loss, we will explain which data may be affected before proceeding and offer to back it up at an additional cost. Some data loss cannot be predicted in advance."
+        ]
+      },
+      {
+        heading: "Pickup Time Limit and Storage",
+        blocks: [
+          "Please collect your device within 60 days of our pickup notification or contact MacXperts to arrange a later pickup.",
+          "If 60 days pass after we contact you and we have not heard from you, MacXperts will consider the device abandoned. Subject to applicable law, MacXperts may sell the device to recover the cost of service and parts, or recycle it if it is nonfunctional.",
+          "If you arrange to collect your device after the 60-day period, a storage fee of $40 per month applies."
+        ]
+      }
     ]
   }
 ];
@@ -130,7 +210,7 @@ export const POLICIES = [
 // ---------------------------------------------------------------------------
 // Separate service pages (hash routes: #/service/<slug>) — content exactly
 // as on the preview. No prices anywhere — the price is confirmed after
-// in-store diagnostics. Every repair includes a 3-month warranty on parts
+// in-store diagnostics. Every repair includes a 60-day warranty on parts
 // and workmanship (excludes liquid/water damage, LCD cracks and pressure
 // damage), and walk-in, mail-in and in-home options are offered.
 // `device` / `issue` / `note` preselect the booking form.

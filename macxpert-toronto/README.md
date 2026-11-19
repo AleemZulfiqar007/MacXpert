@@ -109,8 +109,8 @@ change a price later, edit that one file.
 Clicking **Sell My Device** (enabled once a model is chosen) opens a short
 seller form — name, phone, email and optional notes — prefilled with the
 chosen brand, model, condition and estimated value. It sends to
-**Info1.macxpert@gmail.com** via FormSubmit
-(`https://formsubmit.co/ajax/Info1.macxpert@gmail.com`), the same pattern
+**hello@macxperts.ca** via FormSubmit
+(`https://formsubmit.co/ajax/hello@macxperts.ca`), the same pattern
 and address as the booking form, and shows a confirmation with a
 reference (`MX-S…`). The estimate is confirmed in store after inspection.
 
@@ -126,8 +126,8 @@ The customer picks a **brand** (Apple, Samsung or Google), then a
 `src/data/tradeInData.js` — model names only), then fills in name,
 phone, email and optional notes and submits. **No prices are shown on
 this page** — the owner calls the customer with the price/quote.
-The form sends to **Info1.macxpert@gmail.com** via FormSubmit
-(`https://formsubmit.co/ajax/Info1.macxpert@gmail.com`), the same
+The form sends to **hello@macxperts.ca** via FormSubmit
+(`https://formsubmit.co/ajax/hello@macxperts.ca`), the same
 pattern and address as the booking and sell forms, and shows a
 confirmation with a reference (`MX-B…`).
 
@@ -169,8 +169,8 @@ all offered.
 
 When a customer submits the booking form, the site sends the booking
 (device, issue, date, name, phone, booking reference, and the rest)
-to **Info1.macxpert@gmail.com** using FormSubmit
-(`https://formsubmit.co/ajax/Info1.macxpert@gmail.com`) — a free service,
+to **hello@macxperts.ca** using FormSubmit
+(`https://formsubmit.co/ajax/hello@macxperts.ca`) — a free service,
 no signup, no server or backend needed. The customer still sees the
 on-screen booking confirmation with their reference either way.
 
@@ -181,7 +181,7 @@ link to the Google listing instead.
 
 **Activation:** if this address has not been activated with FormSubmit
 before, the first submission triggers an activation email to
-Info1.macxpert@gmail.com — confirm it once, or no emails arrive.
+hello@macxperts.ca — confirm it once, or no emails arrive.
 
 To send bookings to a different address later, change only the email in
 `BOOKING_EMAIL_ENDPOINT` in `src/components/Booking.jsx`. The form also
@@ -252,13 +252,13 @@ Refunds: **none** — exchange only on defective goods.
 
 - **Shop details are real**, from the Google Business listing: 1022 St
   Clair Ave W, Toronto, ON M6E 1A4, **+1 (647) 569-6360**. Shop email
-  **Info1.macxpert@gmail.com** (provided by ALU; no email was listed on
+  **hello@macxperts.ca** (provided by ALU; no email was listed on
   Google). It is both the display/contact email and the address the
   booking and sell-request forms send to via FormSubmit (see "Booking
   emails" above).
 - Opening hours (from the Google listing): Mon 10:00 AM – 6:30 PM,
   Tue 10:00 AM – 6:30 PM, Wed 10:00 AM – 8:00 PM, Thu 9:30 AM – 7:00 PM,
   Fri 9:30 AM – 7:30 PM, Sat 10:00 AM – 7:00 PM, Sun 10:00 AM – 6:00 PM.
-- Bookings are emailed automatically to Info1.macxpert@gmail.com (see
+- Bookings are emailed automatically to hello@macxperts.ca (see
   "Booking emails" above) and the customer still sees a reference code
   on screen. Bookings are not saved to a database.

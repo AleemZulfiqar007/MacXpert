@@ -15,7 +15,7 @@ export default function Hero() {
           </div>
           <div className="badge-float bf2">
             <span className="ic" style={{ background: 'var(--accent-soft)', color: 'var(--brand)' }}><Shield /></span>
-            <span><b>3-month warranty</b><span>On parts &amp; workmanship</span></span>
+            <span><b>60-day warranty</b><span>On parts &amp; workmanship</span></span>
           </div>
         </div>
         <div className="hero-copy reveal reveal-right">
@@ -29,7 +29,7 @@ export default function Hero() {
           </div>
           <div className="hero-stats">
             <div><b>Google reviews</b><span><a href={SHOP.mapsUrl} target="_blank" rel="noopener" style={{ color: 'var(--brand-bright)', fontWeight: 700, textDecoration: 'none' }}>Read them on our Google listing →</a></span></div>
-            <div><b>3-month</b><span>Warranty on every repair</span></div>
+            <div><b>60-day</b><span>Warranty on every repair</span></div>
             <div><b>Diagnosis</b><span>Diagnostics on every device</span></div>
           </div>
         </div>

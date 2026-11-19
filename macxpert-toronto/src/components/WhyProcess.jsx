@@ -6,7 +6,7 @@ const WHY = [
   ['Reliable service', 'Clear communication and timely solutions from drop-off to pickup. Walk in, mail your device in, or book an in-home visit, whichever suits you.'],
   ['Genuine parts', 'We use genuine or OEM-grade replacement parts for the best performance and longevity, tested twice before your device leaves the shop.'],
   ['Honest in-store pricing', 'No pre-set price lists and no surprises: your device is diagnosed in store, we confirm the exact charge with you, and work starts only when you approve it.'],
-  ['3-month warranty', 'Every repair is covered by a 3-month warranty on parts and workmanship, so you leave with total peace of mind.'],
+  ['60-day warranty', 'Every repair is covered by a 60-day warranty on parts and workmanship, so you leave with total peace of mind.'],
 ]
 
 const STEPS = [
@@ -14,7 +14,7 @@ const STEPS = [
   ['Get it to us', 'Visit our St Clair Ave W store, mail it in from anywhere in Canada, or book an in-home visit.'],
   ['Diagnosis & quote', 'We diagnose the fault in store and confirm the exact price with you. No work starts without your OK.'],
   ['We fix your gadget', 'Expert repair with genuine or OEM-grade parts, tested thoroughly before it leaves the bench.'],
-  ['Pay & pick up, covered', 'Pay when it’s done and collect your device with a 3-month warranty on parts and workmanship.'],
+  ['Pay & pick up, covered', 'Pay when it’s done and collect your device with a 60-day warranty on parts and workmanship.'],
 ]
 
 export function WhyUs() {

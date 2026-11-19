@@ -40,7 +40,7 @@ export default function ServicePage({ page, onBook }) {
               <button className="btn btn-primary" type="button" onClick={() => onBook(page.slug)}>Book this repair →</button>
               <a className="btn btn-outline" href={SHOP.phoneHref}>Call {SHOP.phoneDisplay}</a>
             </div>
-            <div className="sp-pills"><span className="pill diag">Diagnostics</span><span className="pill">{page.turnaround}</span><span className="pill">3-month warranty</span></div>
+            <div className="sp-pills"><span className="pill diag">Diagnostics</span><span className="pill">{page.turnaround}</span><span className="pill">60-day warranty</span></div>
           </div>
           <div className="sp-hero-media"><img src={page.img} alt={page.alt} /></div>
         </div>
@@ -56,7 +56,7 @@ export default function ServicePage({ page, onBook }) {
         <h2 style={{ margin: '54px 0 22px' }}>Good to know</h2>
         <div className="sp-info">
           <div className="sp-info-card reveal"><h3><span className="ic"><SearchIcon /></span>Pricing confirmed after diagnostics</h3><p>We don&rsquo;t publish pre-set prices, because every fault is different. Your device is diagnosed in store, we confirm the exact price with you, and work starts only when you approve it. If you decide not to repair, you pay nothing.</p></div>
-          <div className="sp-info-card reveal"><h3><span className="ic"><ShieldIcon /></span>3-month warranty</h3><p>This repair is covered by a 3-month warranty on parts and workmanship. The warranty excludes liquid or water damage, LCD cracks, and pressure damage. See our <a href="#warranty" style={{ color: 'var(--brand-bright)', fontWeight: 700 }}>warranty policy</a> for full details.</p></div>
+          <div className="sp-info-card reveal"><h3><span className="ic"><ShieldIcon /></span>60-day warranty</h3><p>This repair is covered by a 60-day warranty on parts and workmanship. The warranty excludes liquid or water damage, LCD cracks, and pressure damage. See our <a href="#warranty" style={{ color: 'var(--brand-bright)', fontWeight: 700 }}>warranty policy</a> for full details.</p></div>
           <div className="sp-info-card reveal"><h3><span className="ic"><ClockIcon /></span>Turnaround</h3><p>{page.turnaround}. We&rsquo;ll confirm your exact timeline after the diagnosis, once we&rsquo;ve seen the device.</p></div>
           <div className="sp-info-card reveal"><h3><span className="ic"><PinIcon /></span>Walk-in, mail-in &amp; in-home</h3><ul><li><b>Walk-in:</b> visit 1022 St Clair Ave W, Toronto. No appointment needed.</li><li><b>Mail-in:</b> send your device from anywhere in Canada.</li><li><b>In-home visit:</b> a technician comes to you. Ideal for desktops and larger setups.</li></ul></div>
         </div>

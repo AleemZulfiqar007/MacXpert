@@ -5,7 +5,7 @@ import { TRADE_IN_BRANDS, TRADE_IN_MODELS } from '../data/tradeInData.js'
 // Buy requests are emailed to the shop via FormSubmit — the same pattern
 // and the same destination as the booking and sell forms. No prices are
 // shown on this page: the owner calls the customer with the price/quote.
-const BUY_EMAIL_ENDPOINT = 'https://formsubmit.co/ajax/Info1.macxpert@gmail.com'
+const BUY_EMAIL_ENDPOINT = 'https://formsubmit.co/ajax/hello@macxperts.ca'
 
 const HOW_STEPS = [
   ['Pick the phone you want', 'Choose the brand and model below. Apple iPhone, Samsung Galaxy and Google Pixel models we handle.'],
@@ -117,7 +117,7 @@ export default function BuyAPhone({ showToast }) {
                 <h3>Which phone do you want?</h3>
                 <p className="sub">Select your phone, add your details, and we will call you with the price/quote.</p>
                 {err && <p className="err" id="buyFormErr" role="alert" style={{ display: 'block' }}>{err}</p>}
-                <form onSubmit={submit} noValidate action="https://formsubmit.co/Info1.macxpert@gmail.com" method="POST">
+                <form onSubmit={submit} noValidate action="https://formsubmit.co/hello@macxperts.ca" method="POST">
                   <input type="hidden" name="_subject" value="New buy-a-phone request — MacXpert Toronto" />
                   <input type="hidden" name="_template" value="table" />
                   <input type="hidden" name="_captcha" value="false" />

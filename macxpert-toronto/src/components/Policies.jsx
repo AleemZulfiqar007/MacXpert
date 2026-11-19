@@ -36,10 +36,24 @@ export default function Policies() {
           {POLICIES.map((p) => (
             <article className="policy reveal" id={p.id} key={p.id} style={{ scrollMarginTop: 90 }}>
               <h3><span className="ic">{ICONS[p.icon]}</span>{p.title}</h3>
-              <Intro policy={p} />
-              <ul>
-                {p.bullets.map(([label, text]) => <li key={label + text.slice(0, 24)}><b>{label}</b> {text}</li>)}
-              </ul>
+              {p.intro ? <Intro policy={p} /> : null}
+              {p.bullets && p.bullets.length > 0 && (
+                <ul>
+                  {p.bullets.map(([label, text]) => <li key={label + text.slice(0, 24)}><b>{label}</b> {text}</li>)}
+                </ul>
+              )}
+              {p.sections && p.sections.map((s) => (
+                <div key={s.heading} className="policy-section">
+                  <h4>{s.heading}</h4>
+                  {s.blocks.map((b, i) => Array.isArray(b) ? (
+                    <ul key={i}>
+                      {b.map((item, j) => <li key={j}>{item}</li>)}
+                    </ul>
+                  ) : (
+                    <p key={i}>{b}</p>
+                  ))}
+                </div>
+              ))}
             </article>
           ))}
         </div>

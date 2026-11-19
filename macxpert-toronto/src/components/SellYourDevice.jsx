@@ -4,7 +4,7 @@ import { TRADE_IN_BRANDS, TRADE_IN_CONDITIONS, TRADE_IN_MODELS, formatCAD, trade
 
 // Sell requests are emailed to the shop via FormSubmit — the same pattern
 // and the same destination as the booking form.
-const SELL_EMAIL_ENDPOINT = 'https://formsubmit.co/ajax/Info1.macxpert@gmail.com'
+const SELL_EMAIL_ENDPOINT = 'https://formsubmit.co/ajax/hello@macxperts.ca'
 
 const HOW_STEPS = [
   ['Get your quote', 'Pick your brand and model in the calculator and tick any condition issues that apply. Your estimated value updates right away.'],
@@ -183,7 +183,7 @@ export default function SellYourDevice({ showToast }) {
                   <p className="ta-note">{conditionText}</p>
                 </div>
                 {err && <p className="err" id="sellFormErr" role="alert" style={{ display: 'block' }}>{err}</p>}
-                <form onSubmit={submit} noValidate action="https://formsubmit.co/Info1.macxpert@gmail.com" method="POST">
+                <form onSubmit={submit} noValidate action="https://formsubmit.co/hello@macxperts.ca" method="POST">
                   <input type="hidden" name="_subject" value="New sell / trade-in request — MacXpert Toronto" />
                   <input type="hidden" name="_template" value="table" />
                   <input type="hidden" name="_captcha" value="false" />
