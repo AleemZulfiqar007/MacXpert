@@ -16,7 +16,7 @@ const initials = (name) => (name || 'G').replace('.', '').split(' ').map((x) => 
 export default function Reviews() {
   const { status, data } = useGoogleReviews()
   const listingUrl = SHOP.mapsUrl || GOOGLE_LISTING_URL
-  const liveReviews = status === 'ready' && data && Array.isArray(data.reviews) && data.reviews.length > 0 ? data.reviews : null
+  const liveReviews = status === 'ready' && data && Array.isArray(data.reviews) ? data.reviews.filter((r) => (r.stars || 0) >= 4) : []
 
   return (
     <section id="reviews" className="soft">
@@ -42,7 +42,7 @@ export default function Reviews() {
           </div>
         </div>
 
-        {liveReviews ? (
+        {liveReviews.length > 0 ? (
           <div className="rev-grid" aria-label="Google reviews">
             {liveReviews.map((r, i) => (
               <article className="rev reveal-lift" key={`${r.author}-${i}`}>
